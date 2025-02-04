@@ -40,9 +40,10 @@ export const routes: Routes = [
   {path:'/view-all-clinics',component:ViewAllClinicsComponent},
   {path:'/view-clinic-by-id',component:ViewClinicByIdComponent},
 
-  //Clinics routing paths
-  {path:'/add-doctor',component:AddDoctorComponent},
-  {path:'/edit-doctor',component:EditDoctorComponent},
+  //Doctors routing paths
+  { path: '', redirectTo: 'view-all-doctors', pathMatch: 'full' },
+  {path:'add-doctor',component:AddDoctorComponent},
+  {path:'/edit-doctor/:id',component:EditDoctorComponent},
   {path:'/view-all-doctors',component:ViewAllDoctorsComponent},
   {path:'/view-doctor-by-id',component:ViewDoctorByIdComponent},
 

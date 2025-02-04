@@ -1,23 +1,39 @@
+// Define the interface for services and API paths to ensure better type safety
+interface ApiPaths {
+  [key: string]: {
+    [key: string]: string;
+  };
+}
+
+interface Services {
+  [key: string]: string;
+}
+
 export const environment = {
   production: false,
 
-  services: {
-    appointments: 'http://localhost:8080/api/appointments',
-    clinics: 'http://localhost:8081/api/clinics',
-    doctors: 'http://localhost:8082/api/doctors',
-    patients: 'http://localhost:8083/api/patients',
-    masterdata: 'http://localhost:8086/api/masterdata',
-    // authentication: 'http://localhost:8081/api/auth',
-    // diagnostics: 'http://localhost:8087/api/diagnostics',
-  } as { [key: string]: string },
+  // Base URL for the API, can be adjusted based on environment
+  baseApiUrl: 'http://localhost:8080/api',
 
+  // Services mapping to their endpoints
+  services: {
+    appointments: '/appointments',
+    clinics: '/clinics',
+    doctors: '/doctors',
+    patients: '/patients',
+    masterdata: '/masterdata',
+    // You can add more services here
+  } as Services,
+
+  // Define API paths for various services
   apiPaths: {
     doctors: {
-      getDoctorById: '/{id}',
-      getAllDoctors: '/all',
-      createDoctor: '/create',
-      updateDoctor: '/update/{id}',
-      deleteDoctor: '/delete/{id}',
+      getDoctorById: '/get-doctor-by-Id/',
+      getAllDoctors: '/get-all-doctors',
+      createDoctor: '/addDoctor',
+      updateDoctorAddress: '/update-doctor-address/',
+      updateDoctorExperience: '/update-doctor-experience/',
+      deleteDoctor: '/delete-doctor/',
     },
     patients: {
       getPatientById: '/{id}',
@@ -47,5 +63,5 @@ export const environment = {
       bookService: '/book',
       getAvailableServices: '/services',
     },
-  } as { [key: string]: { [key: string]: string } },
+  } as ApiPaths,
 };
