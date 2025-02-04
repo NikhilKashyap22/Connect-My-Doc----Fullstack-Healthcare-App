@@ -18,6 +18,7 @@ import { AddDoctorComponent } from './doctors/components/add-doctor/add-doctor.c
 import { EditDoctorComponent } from './doctors/components/edit-doctor/edit-doctor.component';
 import { ViewAllDoctorsComponent } from './doctors/components/view-all-doctors/view-all-doctors.component';
 import { ViewDoctorByIdComponent } from './doctors/components/view-doctor-by-id/view-doctor-by-id.component';
+import { DoctorHomeComponent } from './doctor-home/doctor-home.component';
 
 //Authentication routing
 import { ForgotPasswordComponent } from './authentications/components/forgot-password/forgot-password.component';
@@ -26,30 +27,38 @@ import { LogoutComponent } from './authentications/components/logout/logout.comp
 import { RegisterComponent } from './authentications/components/register/register.component';
 
 
-export const routes: Routes = [
+const routerConfig: Routes = [
+  //Default Routing
+  {
+    path:'',
+    component:DoctorHomeComponent,
+    title:'Home Page'
+  },
+
   //Appointment routing paths
-  {path:'/cancel', component:CancelAppointmentComponent},
-  {path:'/edit-appointment', component:EditAppointmentComponent},
-  {path:'/schedule-appointment', component:ScheduleAppointmentComponent},
-  {path:'/view-all-appoinments', component:ViewAllAppointmentsComponent},
-  {path:'/view-appointment-by-id', component:ViewAppointmentByIdComponent},
+  {path:'cancel', component:CancelAppointmentComponent},
+  {path:'edit-appointment', component:EditAppointmentComponent},
+  {path:'schedule-appointment', component:ScheduleAppointmentComponent},
+  {path:'view-all-appoinments', component:ViewAllAppointmentsComponent},
+  {path:'view-appointment-by-id', component:ViewAppointmentByIdComponent},
 
   //Clinics routing paths
-  {path:'/add-clinic',component:AddClinicComponent},
-  {path:'/edit-clinic',component:EditClinicComponent},
-  {path:'/view-all-clinics',component:ViewAllClinicsComponent},
-  {path:'/view-clinic-by-id',component:ViewClinicByIdComponent},
+  {path:'add-clinic',component:AddClinicComponent},
+  {path:'edit-clinic',component:EditClinicComponent},
+  {path:'view-all-clinics',component:ViewAllClinicsComponent},
+  {path:'view-clinic-by-id',component:ViewClinicByIdComponent},
 
   //Doctors routing paths
-  { path: '', redirectTo: 'view-all-doctors', pathMatch: 'full' },
   {path:'add-doctor',component:AddDoctorComponent},
-  {path:'/edit-doctor/:id',component:EditDoctorComponent},
-  {path:'/view-all-doctors',component:ViewAllDoctorsComponent},
-  {path:'/view-doctor-by-id',component:ViewDoctorByIdComponent},
+  {path:'edit-doctor/:id',component:EditDoctorComponent},
+  {path:'view-all-doctors',component:ViewAllDoctorsComponent},
+  {path:'view-doctor-by-id',component:ViewDoctorByIdComponent},
 
   //Authentication
-  {path:'/login',component:LoginComponent},
-  {path:'/logout',component:LogoutComponent},
-  {path:'/forgot',component:ForgotPasswordComponent},
-  {path:'/register',component:RegisterComponent},
+  {path:'login',component:LoginComponent},
+  {path:'logout',component:LogoutComponent},
+  {path:'forgot',component:ForgotPasswordComponent},
+  {path:'register',component:RegisterComponent},
 ];
+
+export default routerConfig;

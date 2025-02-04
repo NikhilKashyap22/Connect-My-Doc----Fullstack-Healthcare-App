@@ -3,14 +3,16 @@ import { ErrorHandlerService } from './app/loggers/error-handler.service';
 import { LoggerService } from './app/loggers/logger.service';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { importProvidersFrom, ErrorHandler } from '@angular/core';
+import { ErrorHandler } from '@angular/core';
 import { AppComponent } from './app/app.component';
-import { ClientSideRowModelModule } from 'ag-grid-community';
+import { provideRouter } from '@angular/router';
+import routerConfig   from './app/app.routes';
 
 bootstrapApplication(AppComponent, {
   providers: [
     LoggerService,
-    { provide: ErrorHandler, useClass: ErrorHandlerService }, // ✅ Global Error Handler
-    provideHttpClient(withInterceptors([ErrorInterceptor])),   // ✅ HTTP Interceptor
+    { provide: ErrorHandler, useClass: ErrorHandlerService },
+    provideHttpClient(withInterceptors([ErrorInterceptor])),
+    provideRouter(routerConfig),
   ]
 }).catch(err => console.error(err));

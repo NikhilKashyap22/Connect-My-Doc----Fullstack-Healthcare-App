@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { ViewAllDoctorsComponent } from "./doctors/components/view-all-doctors/view-all-doctors.component";
 import { SidebarComponent } from "./shared/components/sidebar/sidebar.component";
 import { MainComponent } from "./shared/components/main/main.component";
@@ -10,7 +10,7 @@ import { AddDoctorComponent } from './doctors/components/add-doctor/add-doctor.c
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [DoctorHomeComponent, RouterOutlet, AddDoctorComponent],
+  imports: [DoctorHomeComponent, RouterModule, AddDoctorComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
