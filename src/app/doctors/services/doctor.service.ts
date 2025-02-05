@@ -62,7 +62,7 @@ export class DoctorService {
     try {
       const url = `${environment.baseApiUrl}${environment.services['doctors']}${environment.apiPaths['doctors']['updateDoctorAddress']}${id}`;
       console.log("update doctor address Url: " + url);
-      return this.http.put<Doctor>(url, { address }).pipe(catchError(this.handleError));
+      return this.http.put<Doctor>(url, address ).pipe(catchError(this.handleError));
     } catch (error) {
       return throwError(() => new Error('Error updating doctor address'));
     }

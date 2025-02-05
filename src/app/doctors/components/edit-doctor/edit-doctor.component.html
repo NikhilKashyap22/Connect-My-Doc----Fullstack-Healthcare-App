@@ -13,7 +13,7 @@
     <p><strong>Name:</strong> {{ doctor.firstName }} {{doctor.lastName}}</p>
 
     <!-- Update Experience -->
-    <div>
+    <div class="exp">
       <h4>Update Experience</h4>
       <label>Update YOE :</label>
       <input type="number" [(ngModel)]="newExperience.experienceInYears">
@@ -25,9 +25,13 @@
       <input type="text" [(ngModel)]="newExperience.clinicName">
       <button (click)="updateExperience()">Update Experience</button>
     </div>
+</div>
+</div>
 
+
+<div class="container">
     <!-- Update Address -->
-    <div>
+    <div class="add">
       <h4>Update Address</h4>
       <label>Street:</label>
       <input type="text" [(ngModel)]="newAddress.houseName">
@@ -40,3 +44,4 @@
       <button (click)="updateAddress()">Update Address</button>
     </div>
 </div>
+

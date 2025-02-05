@@ -1,1 +1,37 @@
-<p>get-all-schedules works!</p>
+<h2>List of schedules</h2>
+<div class="btn">
+  <button [routerLink]="['/get-schedule-by-id']" >Search schedule</button>
+  <button [routerLink]="['/create-schedule']" >Create schedule</button>
+</div>
+<div class="container">
+  <div class="table-wrapper">
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Doctor ID</th>
+          <th>Name</th>
+          <th>Week Day</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>Availability Mode</th>
+          <th>Clinic ID</th>
+          <th>Edit Schedule</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let schedule of doctorSchedules">
+          <td>{{schedule.doctorId}}</td>
+          <td>{{schedule.name}}</td>
+          <td>{{schedule.weekDay}}</td>
+          <td>{{schedule.startTime}}</td>
+          <td>{{schedule.endTime}}</td>
+          <td>{{schedule.availabilityMode}}</td>
+          <td>{{schedule.clinicId}}</td>
+          <td>
+            <button (click)="navigateToUpateComponent(schedule.doctorId)">Edit Schedule</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

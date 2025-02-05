@@ -1,3 +1,4 @@
+
 // Define the interface for services and API paths to ensure better type safety
 interface ApiPaths {
   [key: string]: {
@@ -20,6 +21,7 @@ export const environment = {
     appointments: '/appointments',
     clinics: '/clinics',
     doctors: '/doctors',
+    doctorSchedule: '/doctorschedule',
     patients: '/patients',
     masterdata: '/masterdata',
     // You can add more services here
@@ -34,6 +36,13 @@ export const environment = {
       updateDoctorAddress: '/update-doctor-address/',
       updateDoctorExperience: '/update-doctor-experience/',
       deleteDoctor: '/delete-doctor/',
+    },
+    doctorSchedule:{
+      createSchedule:'/add-schedule',
+      getAllSchedules:'/get-all-doctor-schedules',
+      getScheduleById:'/get-schedule-by-Id/',
+      updateDoctorSchedule:'/update-doctor-schedule/',
+      deleteDoctorSchedule:'/delete-doctor-schedule/'
     },
     patients: {
       getPatientById: '/{id}',

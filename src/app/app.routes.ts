@@ -1,3 +1,4 @@
+import { GetAllSchedulesComponent } from './doctor-schedule/components/get-all-schedules/get-all-schedules.component';
 import { Routes } from '@angular/router';
 
 //Appointments --> Ashish
@@ -26,15 +27,16 @@ import { LoginComponent } from './authentications/components/login/login.compone
 import { LogoutComponent } from './authentications/components/logout/logout.component';
 import { RegisterComponent } from './authentications/components/register/register.component';
 import { MainComponent } from './shared/components/main/main.component';
+import { CreateScheduleComponent } from './doctor-schedule/components/create-schedule/create-schedule.component';
+import { GetScheduleByIdComponent } from './doctor-schedule/components/get-schedule-by-id/get-schedule-by-id.component';
+import { UpdateDoctorScheduleComponent } from './doctor-schedule/components/update-doctor-schedule/update-doctor-schedule.component';
+import { DoctorScheduleHomeComponent } from './doctor-schedule-home/doctor-schedule-home.component';
 
 
 const routerConfig: Routes = [
   //Default Routing
-  {
-    path:'',
-    component:MainComponent,
-    title:'Home Page'
-  },
+  {path:'',component:MainComponent,title:'Home Page'},
+  {path:'doctor-schedules',component:DoctorScheduleHomeComponent,title:'Doctor schedule'},
 
   //Appointment routing paths
   {path:'cancel', component:CancelAppointmentComponent},
@@ -54,6 +56,12 @@ const routerConfig: Routes = [
   {path:'edit-doctor',component:EditDoctorComponent},
   {path:'view-all-doctors',component:ViewAllDoctorsComponent},
   {path:'view-doctor-by-id',component:ViewDoctorByIdComponent},
+
+  //Doctor Schedule Routes
+  {path:'create-schedule',component:CreateScheduleComponent},
+  {path:'get-all-schedules',component:GetAllSchedulesComponent},
+  {path:'get-schedule-by-id',component:GetScheduleByIdComponent},
+  {path:'update-doctor-schedule',component:UpdateDoctorScheduleComponent},
 
   //Authentication
   {path:'login',component:LoginComponent},

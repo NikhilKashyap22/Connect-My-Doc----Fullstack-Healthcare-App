@@ -3,6 +3,7 @@
   <button class="btn" [routerLink]="['add-doctor']">Add Doctor</button>
 </div>
 
+
 <div class="container">
   <div class="table-wrapper">
     <table border="1">
@@ -11,7 +12,7 @@
           <th>Doctor ID</th>
           <th>Name</th>
           <th>Phone Number</th>
-          <th>Date of Birth</th>
+          <th>Date of Birth</th> 
           <th>Email</th>
           <th>Experience (Years)</th>
           <th>Gender</th>
@@ -35,8 +36,7 @@
           <td>{{ doctor.status }}</td>
           <td>
             {{ doctor.address.houseName }}, {{ doctor.address.city }},
-            {{ doctor.address.state }}, {{ doctor.address.country }},
-            {{ doctor.address.zipCode }}
+            {{ doctor.address.state }},{{ doctor.address.zipCode }}
           </td>
           <td>
             {{ doctor.specialization.specializationType }} <br>
@@ -57,8 +57,7 @@
             </ul>
           </td>
           <td class="btn-container">
-            <button class="btn" (click)="updateAddress(doctor.doctorId)">Update Address</button>
-            <button class="btn" (click)="updateExperience(doctor.doctorId)">Update Experience</button>
+            <button class="btn" (click)="updateAddress(doctor.doctorId)">Edit Details</button>
             <button class="btn" (click)="deleteDoctor(doctor.doctorId)">Delete Doctor</button>
           </td>
         </tr>

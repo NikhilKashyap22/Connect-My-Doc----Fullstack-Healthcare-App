@@ -47,9 +47,6 @@ export class ViewAllDoctorsComponent implements OnInit {
     this.router.navigate(['/edit-doctor'], { queryParams: { id: doctorId, section: 'address' } });
   }
 
-  public updateExperience(doctorId: string) {
-    this.router.navigate(['/edit-doctor'], { queryParams: { id: doctorId, section: 'experience' } });
-  }
 
   public deleteDoctor(doctorId:string) {
     if (confirm('Are you sure you want to delete this doctor?')) {

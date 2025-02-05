@@ -7,11 +7,12 @@ import { FooterComponent } from "./shared/components/footer/footer.component";
 import { DoctorHomeComponent } from "./doctor-home/doctor-home.component";
 import { AddDoctorComponent } from './doctors/components/add-doctor/add-doctor.component';
 import { HeaderComponent } from './shared/components/header/header.component';
+import { CreateScheduleComponent } from "./doctor-schedule/components/create-schedule/create-schedule.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule, HeaderComponent, SidebarComponent, MainComponent, FooterComponent],
+  imports: [RouterModule, HeaderComponent, SidebarComponent, MainComponent, FooterComponent, CreateScheduleComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

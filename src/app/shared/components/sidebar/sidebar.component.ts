@@ -22,7 +22,7 @@ export class SidebarComponent {
     { name: 'Patients', route: '/patients', icon: 'person' },
     { name: 'Clinic', route: '/clinic', icon: 'business' },
     { name: 'Appointments', route: '/appointments', icon: 'event' },
-    { name: 'Doctor Schedule', route: '/schedule', icon: 'assignment' },
+    { name: 'Doctor Schedule', route: '/doctor-schedules', icon: 'assignment' },
     { name: 'Departments', route: '/departments', icon: 'apartment' },
     { name: 'Services', route: '/services', icon: 'work' },
     { name: 'Assets', route: '/assets', icon: 'inventory_2' }
