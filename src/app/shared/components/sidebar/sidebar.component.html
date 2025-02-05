@@ -1,0 +1,12 @@
+<aside class="sidebar">
+  <nav class="nav" *ngFor="let item of navigation">
+    <a
+      [routerLink]="item.route"
+      [ngClass]="{ 'active': isActive(item.route) }"
+      class="nav-item"
+    >
+      <span class="material-icons nav-icon"></span>
+      {{ item.name }}
+    </a>
+  </nav>
+</aside>

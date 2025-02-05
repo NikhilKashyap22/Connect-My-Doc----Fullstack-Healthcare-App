@@ -1,5 +1,5 @@
 export interface Doctor {
-  doctorId?: string; // Matches backend
+  doctorId: string; // Matches backend
   firstName: string;
   lastName: string;
   phoneNum: number;

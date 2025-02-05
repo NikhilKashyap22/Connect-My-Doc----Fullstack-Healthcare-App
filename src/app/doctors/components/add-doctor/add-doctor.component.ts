@@ -3,11 +3,12 @@ import { FormsModule } from '@angular/forms';
 import { Doctor } from '../../models/doctor.model';
 import { DoctorService } from '../../services/doctor.service';
 import { NgFor, NgIf } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-add-doctor',
   standalone: true,
-  imports: [FormsModule, NgFor, NgIf],
+  imports: [FormsModule, NgFor,RouterModule],
   templateUrl: './add-doctor.component.html',
   styleUrl: './add-doctor.component.css'
 })
@@ -55,7 +56,7 @@ export class AddDoctorComponent {
     ]
   };
 
-  constructor(private doctorService: DoctorService) {}
+  constructor(private doctorService: DoctorService, private router:Router) {}
 
   public submitDoctor() {
     console.log(this.doctors);
@@ -67,9 +68,10 @@ export class AddDoctorComponent {
         console.error('Error adding doctor', error);
       }
     );
+      this.router.navigate(['/']);
   }
 
-  displayForm() {
+  public displayForm() {
     this.isVisible = !this.isVisible;
   }
 }

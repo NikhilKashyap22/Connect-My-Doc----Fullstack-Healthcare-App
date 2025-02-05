@@ -6,11 +6,12 @@ import { MainComponent } from "./shared/components/main/main.component";
 import { FooterComponent } from "./shared/components/footer/footer.component";
 import { DoctorHomeComponent } from "./doctor-home/doctor-home.component";
 import { AddDoctorComponent } from './doctors/components/add-doctor/add-doctor.component';
+import { HeaderComponent } from './shared/components/header/header.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [DoctorHomeComponent, RouterModule, AddDoctorComponent],
+  imports: [RouterModule, HeaderComponent, SidebarComponent, MainComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

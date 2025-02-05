@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Address, Doctor, Experience } from '../../models/doctor.model';
 import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-doctor',
@@ -11,7 +12,7 @@ import { NgIf } from '@angular/common';
   templateUrl: './edit-doctor.component.html',
   styleUrl: './edit-doctor.component.css'
 })
-export class EditDoctorComponent  {
+export class EditDoctorComponent implements OnInit {
   doctorId:string = '';
   doctor: Doctor | null = null;
   newExperience: Experience = {clinicName:'',experienceInYears:0,role:'',experienceType:'PRESENTLY_WORKING'};
@@ -19,10 +20,18 @@ export class EditDoctorComponent  {
 
   newAddress: Address = {houseName:'',city:'',state:'',country:'',zipCode:''}
 
-  constructor(private doctorService:DoctorService){}
+  constructor(private doctorService:DoctorService, private route:ActivatedRoute, private router:Router){}
 
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      if (params['id']) {
+        this.doctorId = params['id'];
+        this.fetchDoctor();
+      }
+    });
+  }
 
-  fetchDoctor(){
+  public fetchDoctor(){
     this.doctorService.getDoctorById(this.doctorId).subscribe(
       (data) => {
         this.doctor = data;
@@ -33,7 +42,7 @@ export class EditDoctorComponent  {
     );
   }
 
-  updateExperience(){
+  public updateExperience(){
     // const updatedExperience: Experience[] = [this.newExperience];
     this.doctorService.updateDoctorExperience(this.doctorId, this.updatedExperience).subscribe({
       next: (data)=>(
@@ -42,10 +51,10 @@ export class EditDoctorComponent  {
       ),
       error: (err) => console.error('Error message: '+err)
     });
-    console.log(this.updatedExperience);
+    this.router.navigate(['']);
   }
 
-  updateAddress(){
+  public updateAddress(){
     this.doctorService.updateDoctorAddress(this.doctorId,this.newAddress).subscribe(
       (updatedDoctor) => {
         this.doctor = updatedDoctor;
@@ -55,15 +64,8 @@ export class EditDoctorComponent  {
         alert('error updating status');
       }
     )
+      this.router.navigate(['']);
   }
 
-  deleteDoctor(){
-    this.doctorService.deleteDoctor(this.doctorId).subscribe(
-      () => {this.doctor = null;},
-      (error) => {
-        alert('Error deleting doctor')
-      }
-    );
-  }
 
 }

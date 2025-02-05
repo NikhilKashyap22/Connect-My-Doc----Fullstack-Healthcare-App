@@ -25,13 +25,14 @@ import { ForgotPasswordComponent } from './authentications/components/forgot-pas
 import { LoginComponent } from './authentications/components/login/login.component';
 import { LogoutComponent } from './authentications/components/logout/logout.component';
 import { RegisterComponent } from './authentications/components/register/register.component';
+import { MainComponent } from './shared/components/main/main.component';
 
 
 const routerConfig: Routes = [
   //Default Routing
   {
     path:'',
-    component:DoctorHomeComponent,
+    component:MainComponent,
     title:'Home Page'
   },
 
@@ -50,7 +51,7 @@ const routerConfig: Routes = [
 
   //Doctors routing paths
   {path:'add-doctor',component:AddDoctorComponent},
-  {path:'edit-doctor/:id',component:EditDoctorComponent},
+  {path:'edit-doctor',component:EditDoctorComponent},
   {path:'view-all-doctors',component:ViewAllDoctorsComponent},
   {path:'view-doctor-by-id',component:ViewDoctorByIdComponent},
 

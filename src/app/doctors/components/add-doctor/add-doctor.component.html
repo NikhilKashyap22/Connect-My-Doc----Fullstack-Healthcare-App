@@ -1,7 +1,4 @@
-<button (click)="displayForm()"> {{ isVisible ? 'Close' : 'Add Doctor' }}</button>
-
-
-<form (ngSubmit)="submitDoctor()" *ngIf="isVisible" >
+<form (ngSubmit)="submitDoctor()">
   <div class="row">
       <div class="col-sm-6">
           <div class="form-group">
@@ -93,13 +90,13 @@
       <div class="col-sm-6">
           <div class="form-group" *ngFor="let qualification of doctors.qualifications">
               <label>Degree</label>
-              <input type="text" class="form-control" [(ngModel)]="qualification.degree" name="experienceInYears">
+              <input type="text" class="form-control" [(ngModel)]="qualification.degree" name="degree">
               <label>University Name</label>
-              <input type="text" class="form-control" [(ngModel)]="qualification.university" name="experienceInYears">
+              <input type="text" class="form-control" [(ngModel)]="qualification.university" name="universityName">
               <label>Start Year</label>
-              <input type="text" class="form-control" [(ngModel)]="qualification.startYear" name="experienceInYears">
+              <input type="date" class="form-control" [(ngModel)]="qualification.startYear" name="startYear">
               <label>End Year</label>
-              <input type="text" class="form-control" [(ngModel)]="qualification.endYear" name="experienceInYears">
+              <input type="date" class="form-control" [(ngModel)]="qualification.endYear" name="endYear">
           </div>
       </div>
   </div>

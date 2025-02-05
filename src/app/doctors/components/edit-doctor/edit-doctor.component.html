@@ -2,11 +2,10 @@
   <h2>Edit Doctor</h2>
 
   <!-- Fetch Doctor by ID -->
-  <div>
-    <label>Enter Doctor ID:</label>
+  <!-- <div>
+    <label>Doctor ID:</label>
     <input type="text" [(ngModel)]="doctorId" placeholder="Doctor ID">
-    <button (click)="fetchDoctor()">Fetch Doctor</button>
-  </div>
+  </div> -->
 
   <div *ngIf="doctor">
     <h3>Doctor Details</h3>
@@ -40,8 +39,4 @@
       <input type="text" [(ngModel)]="newAddress.zipCode">
       <button (click)="updateAddress()">Update Address</button>
     </div>
-
-    <!-- Delete Doctor -->
-    <button class="delete-btn" (click)="deleteDoctor()">Delete Doctor</button>
-  </div>
 </div>

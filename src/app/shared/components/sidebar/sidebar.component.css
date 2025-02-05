@@ -1,0 +1,43 @@
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 4rem;
+  width: 16rem;
+  height: calc(100vh - 4rem);
+  background-color: rgb(255, 255, 255);
+  border-right: 1px solid #e5e7eb;
+  padding: 1rem;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4b5563;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-item:hover {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+.nav-item.active {
+  background-color: #ebf4ff;
+  color: #2563eb;
+}
+
+.nav-icon {
+  font-size: 1.25rem;
+}

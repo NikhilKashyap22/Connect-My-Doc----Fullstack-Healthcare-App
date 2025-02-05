@@ -4,11 +4,12 @@ import { ActivatedRoute } from '@angular/router';
 import { DoctorService } from '../../services/doctor.service';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { DoctorNameFormatterPipe } from '../../../pipes/doctor-name-formatter.pipe';
 
 @Component({
   selector: 'app-view-doctor-by-id',
   standalone: true,
-  imports: [NgIf, FormsModule, NgFor],
+  imports: [NgIf, FormsModule, NgFor, DoctorNameFormatterPipe],
   templateUrl: './view-doctor-by-id.component.html',
   styleUrl: './view-doctor-by-id.component.css'
 })
@@ -19,7 +20,7 @@ export class ViewDoctorByIdComponent {
 
   constructor(private doctorService: DoctorService) {}
 
-  fetchDoctor(): void {
+  public fetchDoctor(): void {
     if (!this.doctorId) {
       alert('Please enter a valid Doctor ID.');
       return;
