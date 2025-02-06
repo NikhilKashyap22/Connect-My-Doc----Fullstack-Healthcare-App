@@ -19,7 +19,7 @@ import { AddDoctorComponent } from './doctors/components/add-doctor/add-doctor.c
 import { EditDoctorComponent } from './doctors/components/edit-doctor/edit-doctor.component';
 import { ViewAllDoctorsComponent } from './doctors/components/view-all-doctors/view-all-doctors.component';
 import { ViewDoctorByIdComponent } from './doctors/components/view-doctor-by-id/view-doctor-by-id.component';
-import { DoctorHomeComponent } from './doctor-home/doctor-home.component';
+import { DoctorHomeComponent } from './doctors/doctor-home/doctor-home.component';
 
 //Authentication routing
 import { ForgotPasswordComponent } from './authentications/components/forgot-password/forgot-password.component';
@@ -30,7 +30,7 @@ import { MainComponent } from './shared/components/main/main.component';
 import { CreateScheduleComponent } from './doctor-schedule/components/create-schedule/create-schedule.component';
 import { GetScheduleByIdComponent } from './doctor-schedule/components/get-schedule-by-id/get-schedule-by-id.component';
 import { UpdateDoctorScheduleComponent } from './doctor-schedule/components/update-doctor-schedule/update-doctor-schedule.component';
-import { DoctorScheduleHomeComponent } from './doctor-schedule-home/doctor-schedule-home.component';
+import { DoctorScheduleHomeComponent } from './doctor-schedule/doctor-schedule-home/doctor-schedule-home.component';
 
 
 const routerConfig: Routes = [

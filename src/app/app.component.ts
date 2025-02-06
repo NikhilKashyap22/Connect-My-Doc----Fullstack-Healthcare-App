@@ -4,7 +4,6 @@ import { ViewAllDoctorsComponent } from "./doctors/components/view-all-doctors/v
 import { SidebarComponent } from "./shared/components/sidebar/sidebar.component";
 import { MainComponent } from "./shared/components/main/main.component";
 import { FooterComponent } from "./shared/components/footer/footer.component";
-import { DoctorHomeComponent } from "./doctor-home/doctor-home.component";
 import { AddDoctorComponent } from './doctors/components/add-doctor/add-doctor.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { CreateScheduleComponent } from "./doctor-schedule/components/create-schedule/create-schedule.component";

@@ -1,5 +1,4 @@
 
-// Define the interface for services and API paths to ensure better type safety
 interface ApiPaths {
   [key: string]: {
     [key: string]: string;
@@ -13,10 +12,8 @@ interface Services {
 export const environment = {
   production: false,
 
-  // Base URL for the API, can be adjusted based on environment
   baseApiUrl: 'http://localhost:8080/api',
 
-  // Services mapping to their endpoints
   services: {
     appointments: '/appointments',
     clinics: '/clinics',
@@ -24,10 +21,8 @@ export const environment = {
     doctorSchedule: '/doctorschedule',
     patients: '/patients',
     masterdata: '/masterdata',
-    // You can add more services here
   } as Services,
 
-  // Define API paths for various services
   apiPaths: {
     doctors: {
       getDoctorById: '/get-doctor-by-Id/',

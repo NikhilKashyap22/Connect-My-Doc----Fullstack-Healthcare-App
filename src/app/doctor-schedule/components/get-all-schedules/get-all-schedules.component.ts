@@ -4,11 +4,13 @@ import { DoctorScheduleService } from '../../services/doctor-schedule.service';
 import { NgFor } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from "../../../shared/components/header/header.component";
+import { SidebarComponent } from "../../../shared/components/sidebar/sidebar.component";
 
 @Component({
   selector: 'app-get-all-schedules',
   standalone: true,
-  imports: [NgFor, RouterModule],
+  imports: [NgFor, RouterModule, HeaderComponent, SidebarComponent],
   templateUrl: './get-all-schedules.component.html',
   styleUrl: './get-all-schedules.component.css'
 })
