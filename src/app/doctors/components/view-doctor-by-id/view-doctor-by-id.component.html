@@ -1,76 +1,65 @@
-<div>
-  <h2>Find Doctor by ID</h2>
-  <label for="doctorId">Enter Doctor ID:</label>
-  <input type="text" id="doctorId" [(ngModel)]="doctorId" />
-  <button (click)="fetchDoctor()">Search</button>
-</div>
-<div *ngIf="doctor">
-<table border="1" >
-  <thead>
-    <tr>
-      <th>Doctor ID</th>
-      <th>Name</th>
-      <th>Phone Number</th>
-      <th>Date of Birth</th>
-      <th>Email</th>
-      <th>Experience (Years)</th>
-      <th>Gender</th>
-      <th>Status</th>
-      <th>Clinic ID</th>
-      <th>Address</th>
-      <th>Specialization</th>
-      <th>Experiences</th>
-      <th>Qualifications</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>{{ doctor.doctorId }}</td>
-      <td>{{ doctor.firstName | doctorNameFormatter }} {{ doctor.lastName }}</td>
-      <td>{{ doctor.phoneNum }}</td>
-      <td>{{ doctor.dateOfBirth }}</td>
-      <td>{{ doctor.email }}</td>
-      <td *ngFor="let exp of doctor.experiences">{{ exp.experienceInYears}}</td>
-      <td>{{ doctor.gender }}</td>
-      <td>{{ doctor.status }}</td>
-      <td>{{ doctor.clinicId }}</td>
+<div class="cl">
+  <div *ngIf="doctor">
+  <table>
+    <thead>
+      <tr>
+        <th>Doctor ID</th>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th>Date of Birth</th>
+        <th>Email</th>
+        <th>Experience (Years)</th>
+        <th>Gender</th>
+        <th>Status</th>
+        <th>Address</th>
+        <th>Specialization</th>
+        <th>Experiences</th>
+        <th>Qualifications</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ doctor.doctorId }}</td>
+        <td>{{ doctor.firstName | doctorNameFormatter }} {{ doctor.lastName }}</td>
+        <td>{{ doctor.phoneNum }}</td>
+        <td>{{ doctor.dateOfBirth }}</td>
+        <td>{{ doctor.email }}</td>
+        <td *ngFor="let exp of doctor.experiences">{{ exp.experienceInYears}}</td>
+        <td>{{ doctor.gender }}</td>
+        <td>{{ doctor.status }}</td>
 
-      <!-- Address (Nested Object) -->
-      <td>
-        {{ doctor.address.houseName }}, {{ doctor.address.city }},
-        {{ doctor.address.state }}, {{ doctor.address.country }},
-        {{ doctor.address.zipCode }}
-      </td>
+        <!-- Address (Nested Object) -->
+        <td>
+          {{ doctor.address.houseName }}, {{ doctor.address.city }},
+          {{ doctor.address.state }}, {{ doctor.address.country }},
+          {{ doctor.address.zipCode }}
+        </td>
 
-      <!-- Specialization (Nested Object) -->
-      <td>
-        {{ doctor.specialization.specializationType }} <br>
-        {{ doctor.specialization.specializationDescription }}
-      </td>
+        <!-- Specialization (Nested Object) -->
+        <td>
+          {{ doctor.specialization.specializationType }} <br>
+          {{ doctor.specialization.specializationDescription }}
+        </td>
 
-      <!-- Experiences (Array) -->
-      <td>
-        <ul>
-          <li *ngFor="let exp of doctor.experiences">
-            {{ exp.clinicName }} - {{ exp.role }} ({{ exp.experienceInYears }} years)
-          </li>
-        </ul>
-      </td>
+        <!-- Experiences (Array) -->
+        <td>
+          <ul>
+            <li *ngFor="let exp of doctor.experiences">
+              {{ exp.clinicName }} - {{ exp.role }} ({{ exp.experienceInYears }} years)
+            </li>
+          </ul>
+        </td>
 
-      <!-- Qualifications (Array) -->
-      <td>
-        <ul>
-          <li *ngFor="let qual of doctor.qualifications">
-            {{ qual.degree }} from {{ qual.university }} ({{ qual.startYear }} - {{ qual.endYear }})
-          </li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-  </table>
-</div>
-
-
-  <div *ngIf="!doctor">
-    <p>No doctor details available.</p>
+        <!-- Qualifications (Array) -->
+        <td>
+          <ul>
+            <li *ngFor="let qual of doctor.qualifications">
+              {{ qual.degree }} from {{ qual.university }} ({{ qual.startYear }} - {{ qual.endYear }})
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+    </table>
   </div>
+</div>

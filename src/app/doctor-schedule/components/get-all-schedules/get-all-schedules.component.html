@@ -1,14 +1,10 @@
-<app-header></app-header>
-<app-sidebar></app-sidebar>
-
-<h2>List of schedules</h2>
-<div class="btn">
-  <button [routerLink]="['/get-schedule-by-id']" >Search schedule</button>
-  <button [routerLink]="['/create-schedule']" >Create schedule</button>
-</div>
-<div class="container">
-  <div class="table-wrapper">
-    <table border="1">
+<div class="cl">
+  <h2>List of schedules</h2>
+  <div class="btn">
+    <button [routerLink]="['/get-schedule-by-id']" >Search schedule</button>
+    <button [routerLink]="['/create-schedule']" >Create schedule</button>
+  </div>
+    <table>
       <thead>
         <tr>
           <th>Doctor ID</th>
@@ -36,5 +32,4 @@
         </tr>
       </tbody>
     </table>
-  </div>
 </div>

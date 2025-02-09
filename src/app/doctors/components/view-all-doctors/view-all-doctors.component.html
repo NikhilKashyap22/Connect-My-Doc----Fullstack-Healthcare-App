@@ -1,64 +1,61 @@
 <h2>List of doctors</h2>
-<div class="btn-container">
-  <button class="btn" [routerLink]="['add-doctor']">Add Doctor</button>
-</div>
-
-
-<div class="container">
-  <div class="table-wrapper">
-    <table border="1">
+<div class="cl">
+  <button [routerLink]="['add-doctor']">Add Doctor</button>
+  <div class="table-responsive">
+    <table>
       <thead>
         <tr>
-          <th>Doctor ID</th>
-          <th>Name</th>
-          <th>Phone Number</th>
-          <th>Date of Birth</th>
+          <th>Doctor ID</th> <!-- needed-->
+          <th>Name</th> <!-- needed-->
+          <th>Phone Number</th> <!-- needed-->
+          <!-- <th>Date of Birth</th> -->
           <th>Email</th>
-          <th>Experience (Years)</th>
-          <th>Gender</th>
-          <th>Status</th>
-          <th>Address</th>
-          <th>Specialization</th>
-          <th>Experiences</th>
-          <th>Qualifications</th>
+          <th>Experience</th> <!-- needed-->
+          <!-- <th>Gender</th> -->
+          <th>Status</th> <!-- needed-->
+          <!-- <th>Address</th> -->
+          <th>Specialization</th> <!-- needed-->
+          <!-- <th>Experiences</th> -->
+          <!-- <th>Qualifications</th> -->
           <th>Edit Data</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let doctor of doctors">
-          <td>{{ doctor.doctorId }}</td>
-          <td>{{ doctor.firstName | doctorNameFormatter }} {{ doctor.lastName }}</td>
-          <td>{{ doctor.phoneNum }}</td>
-          <td>{{ doctor.dateOfBirth }}</td>
+          <td>{{ doctor.doctorId }}</td> <!-- needed-->
+          <td>{{ doctor.firstName | doctorNameFormatter }} {{ doctor.lastName }}</td> <!-- needed-->
+          <td>{{ doctor.phoneNum }}</td> <!-- needed-->
+          <!-- <td>{{ doctor.dateOfBirth }}</td> -->
           <td>{{ doctor.email }}</td>
-          <td *ngFor="let exp of doctor.experiences">{{ exp.experienceInYears }}</td>
-          <td>{{ doctor.gender }}</td>
-          <td>{{ doctor.status }}</td>
-          <td>
+          <td *ngFor="let exp of doctor.experiences">{{ exp.experienceInYears }} years</td> <!-- needed-->
+          <!-- <td>{{ doctor.gender }}</td> -->
+          <td>{{ doctor.status }}</td> <!-- needed-->
+          <!-- <td>
             {{ doctor.address.houseName }}, {{ doctor.address.city }},
             {{ doctor.address.state }},{{ doctor.address.zipCode }}
-          </td>
+          </td> -->
           <td>
-            {{ doctor.specialization.specializationType }} <br>
-            {{ doctor.specialization.specializationDescription }}
+            {{ doctor.specialization.specializationType }} <br> <!-- needed-->
+            <!-- {{ doctor.specialization.specializationDescription }} -->
           </td>
-          <td>
+          <!-- <td>
             <ul>
               <li *ngFor="let exp of doctor.experiences">
                 {{ exp.clinicName }} - {{ exp.role }} ({{ exp.experienceInYears }} years)
               </li>
             </ul>
-          </td>
-          <td>
+          </td> -->
+          <!-- <td>
             <ul>
               <li *ngFor="let qual of doctor.qualifications">
                 {{ qual.degree }} from {{ qual.university }} ({{ qual.startYear }} - {{ qual.endYear }})
               </li>
             </ul>
-          </td>
+          </td> -->
           <td class="btn-container">
-            <button class="btn" (click)="updateAddress(doctor.doctorId)">Edit Details</button>
-            <button class="btn" (click)="deleteDoctor(doctor.doctorId)">Delete Doctor</button>
+            <button class="btn" (click)="updateAddress(doctor.doctorId)">Edit</button>
+            <button class="btn" (click)="deleteDoctor(doctor.doctorId)">Delete</button>
+            <button (click)="viewDoctor(doctor.doctorId)">View doctor</button>
           </td>
         </tr>
       </tbody>

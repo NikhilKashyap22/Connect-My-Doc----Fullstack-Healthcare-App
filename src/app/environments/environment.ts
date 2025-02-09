@@ -13,6 +13,7 @@ export const environment = {
   production: false,
 
   baseApiUrl: 'http://localhost:8080/api',
+  baseApiUrlClinic:'http://localhost:8085/api/Clinic',
 
   services: {
     appointments: '/appointments',

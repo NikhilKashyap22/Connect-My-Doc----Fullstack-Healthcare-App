@@ -1,5 +1,5 @@
 import { DoctorSchedule } from './../models/doctor-schedule';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EnvironmentService } from '../../environments/environment.service';
 import { catchError, Observable, throwError } from 'rxjs';
@@ -12,6 +12,14 @@ export class DoctorScheduleService {
 
   constructor(private http:HttpClient) { }
 
+  public getAuthHeaders(): HttpHeaders{
+      const token = localStorage.getItem('jwtToken');
+      return new HttpHeaders({
+        'Content-Type':'application/json',
+        'Authorization':`Bearer ${token}`
+      })
+    }
+
   private handleError(error: HttpErrorResponse) {
       console.error('An error occurred:', error);
       return throwError(() => new Error(error.message || 'Server error'));
@@ -22,7 +30,7 @@ export class DoctorScheduleService {
     try{
       const url = `${environment.baseApiUrl}${environment.services['doctorSchedule']}${environment.apiPaths['doctorSchedule']['getAllSchedules']}`;
       console.log("Schedule URL: " + url);
-      return this.http.get<DoctorSchedule>(url).pipe(catchError(this.handleError));
+      return this.http.get<DoctorSchedule>(url, {headers:this.getAuthHeaders()}).pipe(catchError(this.handleError));
     }catch (error){
       return throwError(()=> new Error('Error fetching schedules: '+ error));
     }
@@ -32,7 +40,7 @@ export class DoctorScheduleService {
     try{
       const url = `${environment.baseApiUrl}${environment.services['doctorSchedule']}${environment.apiPaths['doctorSchedule']['getScheduleById']}${id}`;
       console.log('Get Schedule URL: ' + url);
-      return this.http.get<DoctorSchedule>(url).pipe(catchError(this.handleError));
+      return this.http.get<DoctorSchedule>(url, {headers:this.getAuthHeaders()}).pipe(catchError(this.handleError));
     } catch (error){
       return throwError(()=> new Error('Error get doctor for this id: '+ id));
     }
@@ -42,7 +50,7 @@ export class DoctorScheduleService {
     try{
     const url = `${environment.baseApiUrl}${environment.services['doctorSchedule']}${environment.apiPaths['doctorSchedule']['createSchedule']}`;
     console.log("Create Schedule URL: " + url);
-    return this.http.post<DoctorSchedule>(url, doctorSchedule).pipe(catchError(this.handleError));
+    return this.http.post<DoctorSchedule>(url, doctorSchedule, {headers:this.getAuthHeaders()}).pipe(catchError(this.handleError));
   }catch(error){
       return throwError(()=> new Error('Error creating schedule: ' + error))
     }
@@ -52,7 +60,7 @@ export class DoctorScheduleService {
     try{
       const url = `${environment.baseApiUrl}${environment.services['doctorSchedule']}${environment.apiPaths['doctorSchedule']['updateDoctorSchedule']}${id}`;
       console.log("Update Doctor URL: " + url);
-      return this.http.put<DoctorSchedule>(url, doctorSchedule ).pipe(catchError(this.handleError));
+      return this.http.put<DoctorSchedule>(url, doctorSchedule, {headers:this.getAuthHeaders()}).pipe(catchError(this.handleError));
     }catch (error) {
       return throwError(() => new Error('Error updating doctor schedule: ' + error));
     }

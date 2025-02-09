@@ -13,20 +13,27 @@ import { DoctorNameFormatterPipe } from '../../../pipes/doctor-name-formatter.pi
   templateUrl: './view-doctor-by-id.component.html',
   styleUrl: './view-doctor-by-id.component.css'
 })
-export class ViewDoctorByIdComponent {
+export class ViewDoctorByIdComponent implements OnInit{
   doctorId!: string;
   doctor!: Doctor;
   isLoading = false;
 
-  constructor(private doctorService: DoctorService) {}
+  constructor(private doctorService: DoctorService, private route:ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      if (params['id']) {
+        this.doctorId = params['id'];
+        this.fetchDoctor();
+      }
+    });
+  }
 
   public fetchDoctor(): void {
     if (!this.doctorId) {
       alert('Please enter a valid Doctor ID.');
       return;
     }
-
-    this.isLoading = true;
     this.doctorService.getDoctorById(this.doctorId).subscribe(
       (data) => {
         this.doctor = data;

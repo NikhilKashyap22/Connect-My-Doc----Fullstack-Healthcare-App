@@ -31,11 +31,13 @@ import { CreateScheduleComponent } from './doctor-schedule/components/create-sch
 import { GetScheduleByIdComponent } from './doctor-schedule/components/get-schedule-by-id/get-schedule-by-id.component';
 import { UpdateDoctorScheduleComponent } from './doctor-schedule/components/update-doctor-schedule/update-doctor-schedule.component';
 import { DoctorScheduleHomeComponent } from './doctor-schedule/doctor-schedule-home/doctor-schedule-home.component';
+import { AuthGuard } from './authentications/guards/auth.guard';
 
 
 const routerConfig: Routes = [
   //Default Routing
-  {path:'',component:MainComponent,title:'Home Page'},
+  {path:'', redirectTo:'/login', pathMatch:'full'},
+  {path:'home',component:DoctorHomeComponent,title:'Home Page', canActivate: [AuthGuard]},
   {path:'doctor-schedules',component:DoctorScheduleHomeComponent,title:'Doctor schedule'},
 
   //Appointment routing paths
@@ -48,14 +50,14 @@ const routerConfig: Routes = [
   //Clinics routing paths
   {path:'add-clinic',component:AddClinicComponent},
   {path:'edit-clinic',component:EditClinicComponent},
-  {path:'view-all-clinics',component:ViewAllClinicsComponent},
+  {path:'home/view-all-clinics',component:ViewAllClinicsComponent},
   {path:'view-clinic-by-id',component:ViewClinicByIdComponent},
 
   //Doctors routing paths
-  {path:'add-doctor',component:AddDoctorComponent},
-  {path:'edit-doctor',component:EditDoctorComponent},
+  {path:'home/add-doctor',component:AddDoctorComponent},
+  {path:'home/edit-doctor',component:EditDoctorComponent},
   {path:'view-all-doctors',component:ViewAllDoctorsComponent},
-  {path:'view-doctor-by-id',component:ViewDoctorByIdComponent},
+  {path:'home/view-doctor-by-id',component:ViewDoctorByIdComponent},
 
   //Doctor Schedule Routes
   {path:'create-schedule',component:CreateScheduleComponent},
