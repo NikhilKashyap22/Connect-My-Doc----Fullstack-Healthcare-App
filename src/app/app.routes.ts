@@ -44,7 +44,7 @@ const routerConfig: Routes = [
   {path:'cancel', component:CancelAppointmentComponent},
   {path:'edit-appointment', component:EditAppointmentComponent},
   {path:'schedule-appointment', component:ScheduleAppointmentComponent},
-  {path:'view-all-appoinments', component:ViewAllAppointmentsComponent},
+  {path:'appointments', component:ViewAllAppointmentsComponent},
   {path:'view-appointment-by-id', component:ViewAppointmentByIdComponent},
 
   //Clinics routing paths

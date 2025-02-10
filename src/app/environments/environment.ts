@@ -14,6 +14,7 @@ export const environment = {
 
   baseApiUrl: 'http://localhost:8080/api',
   baseApiUrlClinic:'http://localhost:8085/api/Clinic',
+  baseApiUrlAppointments:'http://localhost:8089/api',
 
   services: {
     appointments: '/appointments',
@@ -54,6 +55,7 @@ export const environment = {
       createAppointment: '/create',
       getAppointmentsByDoctor: '/doctor/{doctorId}',
       getAppointmentsByPatient: '/patient/{patientId}',
+      getAllAppointments:'/get-all-appointments'
     },
     authentication: {
       login: '/login',

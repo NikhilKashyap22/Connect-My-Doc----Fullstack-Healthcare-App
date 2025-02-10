@@ -8,6 +8,7 @@ import { AppComponent } from './app/app.component';
 import { provideRouter } from '@angular/router';
 import routerConfig   from './app/app.routes';
 import { AuthInterceptor } from './app/authentications/interceptors/auth.interceptor';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -15,6 +16,6 @@ bootstrapApplication(AppComponent, {
     { provide: ErrorHandler, useClass: ErrorHandlerService },
     provideHttpClient(withInterceptors([ErrorInterceptor])),
     provideRouter(routerConfig),
-    {provide:HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true}
+    {provide:HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true}, provideAnimationsAsync()
   ]
 }).catch(err => console.error(err));
