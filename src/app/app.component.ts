@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { ViewAllDoctorsComponent } from "./doctors/components/view-all-doctors/view-all-doctors.component";
 import { SidebarComponent } from "./shared/components/sidebar/sidebar.component";
 import { MainComponent } from "./shared/components/main/main.component";
@@ -8,6 +8,8 @@ import { AddDoctorComponent } from './doctors/components/add-doctor/add-doctor.c
 import { HeaderComponent } from './shared/components/header/header.component';
 import { CreateScheduleComponent } from "./doctor-schedule/components/create-schedule/create-schedule.component";
 import { LoginComponent } from "./authentications/components/login/login.component";
+import { environment } from './environments/environment';
+import * as Sentry from '@sentry/angular';
 
 @Component({
   selector: 'app-root',
@@ -18,4 +20,10 @@ import { LoginComponent } from "./authentications/components/login/login.compone
 })
 export class AppComponent {
   title = 'CMD_UI';
+  constructor(private router: Router) {
+    // Initialize Sentry if DSN is available
+    if (environment.sentryDsn) {
+      Sentry.init({ dsn: environment.sentryDsn });
+    }
+  }
 }

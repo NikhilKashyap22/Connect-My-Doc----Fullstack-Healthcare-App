@@ -4,6 +4,7 @@ import { Doctor } from '../../models/doctor.model';
 import { DoctorService } from '../../services/doctor.service';
 import { NgFor, NgIf } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+import { LoggerService } from '../../../loggers/logger.service';
 
 @Component({
   selector: 'app-add-doctor',
@@ -56,7 +57,7 @@ export class AddDoctorComponent {
     ]
   };
 
-  constructor(private doctorService: DoctorService, private router:Router) {}
+  constructor(private doctorService: DoctorService, private router:Router, private loggerService:LoggerService) {}
 
   public submitDoctor() {
     console.log(this.doctors);
@@ -66,6 +67,7 @@ export class AddDoctorComponent {
       },
       error => {
         console.error('Error adding doctor', error);
+        this.loggerService.logError("Error detected: " + error);
       }
     );
       this.router.navigate(['/']);

@@ -8,6 +8,7 @@ import { ColDef } from './../../../../../node_modules/ag-grid-community/dist/typ
 import {AgGridModule} from 'ag-grid-angular'
 import { AddDoctorComponent } from "../add-doctor/add-doctor.component";
 import { DoctorNameFormatterPipe } from '../../../pipes/doctor-name-formatter.pipe';
+import { LoggerService } from '../../../loggers/logger.service';
 
   // 2. Component and Templates.
 @Component({
@@ -29,7 +30,8 @@ export class ViewAllDoctorsComponent implements OnInit {
   // 5. Constructor.
   constructor(
     private doctorService: DoctorService, // DoctorService injection
-    private router:Router // Router injection
+    private router:Router, // Router injection
+    private loggerService:LoggerService
   ) {}
 
 
@@ -42,7 +44,10 @@ export class ViewAllDoctorsComponent implements OnInit {
   public loadDoctors() : void {
     this.doctorService.getAllDoctors().subscribe({
       next: (data)=>(this.doctors = data),
-      error: (err) => console.error('Error message: '+err),
+      error: (err) => {
+        console.error('Error message: '+err),
+      this.loggerService.logError("Error detected: " + err)
+      }
     })
   }
 

@@ -1,8 +1,8 @@
-// error.interceptor.ts
-
 import { HttpEvent, HttpInterceptorFn, HttpRequest, HttpHandlerFn } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { LoggerService } from './logger.service';
+
 
 export const ErrorInterceptor: HttpInterceptorFn = (
   req: HttpRequest<unknown>,
@@ -12,6 +12,7 @@ export const ErrorInterceptor: HttpInterceptorFn = (
     catchError((error) => {
       // Handle the error here (log it, display a message, etc.)
       console.error('HTTP Error:', error);
+
       return of(error); // Return an empty observable to continue
     })
   );

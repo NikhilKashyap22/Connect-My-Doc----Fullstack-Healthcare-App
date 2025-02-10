@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import * as Sentry from '@sentry/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,8 @@ export class LoggerService {
 
     // Also log to console
     console.error('Logged Error:', errorEntry);
+    // Log the error to Sentry (new integration)
+    Sentry.captureException(new Error(message));  // Send the error to Sentry
   }
 
   /**

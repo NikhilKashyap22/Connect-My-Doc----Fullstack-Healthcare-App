@@ -10,7 +10,8 @@ interface Services {
 }
 
 export const environment = {
-  production: false,
+  production: true,
+  sentryDsn : 'https://83d8fb7e6276f9585124a732946a4673@o4508759768760320.ingest.us.sentry.io/4508759772299264',
 
   // Base URL for the API, can be adjusted based on environment
   baseApiUrl: 'http://localhost:8080/api',
