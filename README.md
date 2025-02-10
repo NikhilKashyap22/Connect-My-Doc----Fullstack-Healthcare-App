@@ -3,7 +3,7 @@
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)
 ![Hibernate](https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=hibernate&logoColor=white)
-![Web API](https://img.shields.io/badge/Web%20API-0088CC?style=for-the-badge)
+![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=json-web-tokens&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![Microservices](https://img.shields.io/badge/Microservices-005571?style=for-the-badge)
@@ -26,9 +26,9 @@
 
 ## Tech Stack
 - **Backend:** Java, Spring Boot, Hibernate
+- **Frontend:** Angular
 - **Database:** MySQL
 - **Security:** JWT Authentication
-- **API:** Web API (RESTful)
 - **Architecture:** Microservices
 - **Version Control:** Git
 - **Testing:** JUnit
@@ -83,3 +83,7 @@ spring.datasource.password=yourpassword
 
 ## License
 This project is licensed under the MIT License.
+
+---
+Made with ❤️ using Java, Spring Boot, Hibernate, Angular, and JWT.
+
