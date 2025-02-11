@@ -84,6 +84,4 @@ spring.datasource.password=yourpassword
 ## License
 This project is licensed under the MIT License.
 
----
-Made with ❤️ using Java, Spring Boot, Hibernate, Angular, and JWT.
 
