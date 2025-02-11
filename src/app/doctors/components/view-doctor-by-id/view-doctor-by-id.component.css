@@ -1,12 +1,14 @@
 /* Container Styling */
 .cl {
   max-width: 90%;
+  height: 80vh;
   margin: 0px 0px 0px auto;
+  margin-top: 40px;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 div {
-  font-family: Arial, sans-serif;
+  font-family: 'poppins', sans-serif;
   width: 100%;
   text-align: center;
 }

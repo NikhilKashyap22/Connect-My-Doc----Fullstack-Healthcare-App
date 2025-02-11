@@ -6,8 +6,12 @@
   display: flex;
   flex-direction: column;
   align-items: end;
+  margin-left: 5rem;
 }
 
+h2{
+  margin-left: 5rem;
+}
 
 .table-responsive {
   max-width: 100%;

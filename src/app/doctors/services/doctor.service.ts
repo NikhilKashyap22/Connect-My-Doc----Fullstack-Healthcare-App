@@ -14,8 +14,13 @@ export class DoctorService {
   constructor(private http: HttpClient, private envService: EnvironmentService) {}
 
   private handleError(error: HttpErrorResponse) {
-    console.error('An error occurred:', error);
-    return throwError(() => new Error(error.message || 'Server error'));
+    if (error.status === 0) {
+      console.error('An error occurred:', error.error);
+    } else {
+      console.error(
+        `Backend returned code ${error.status}, body was: `, error.error);
+    }
+    return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 
   public getAuthHeaders(): HttpHeaders {
@@ -34,14 +39,10 @@ export class DoctorService {
   }
 
   public getAllDoctors(): Observable<any> {
-    try {
       const url = `${environment.baseApiUrl}${environment.services['doctors']}${environment.apiPaths['doctors']['getAllDoctors']}`;
       console.log("get all doctors url: " + url);
       return this.http.get<Doctor>(url, {headers:this.getAuthHeaders()}).pipe(catchError(this.handleError));
-    } catch (error) {
-      return throwError(() => new Error('Error fetching doctors'));
     }
-  }
 
   public addDoctor(doctor: Doctor): Observable<Object> {
     try {
@@ -49,7 +50,7 @@ export class DoctorService {
       console.log("add doctor URL: " + url);
       return this.http.post(url, doctor, {headers:this.getAuthHeaders()}).pipe(catchError(this.handleError));
     } catch (error) {
-      return throwError(() => new Error('Error adding doctor'));
+      return throwError(() => new Error('Error adding doctor: ' + error));
     }
   }
 
@@ -59,7 +60,7 @@ export class DoctorService {
       console.log("get doctor by id: " + url);
       return this.http.get<Doctor>(url, {headers:this.getAuthHeaders()}).pipe(catchError(this.handleError));
     } catch (error) {
-      return throwError(() => new Error('Error fetching doctor by ID'));
+      return throwError(() => new Error('Error fetching doctor by ID: ' + error));
     }
   }
 
@@ -69,7 +70,7 @@ export class DoctorService {
       console.log("update doctor experience Url: " + url);
       return this.http.put<Doctor>(url, experience, {headers:this.getAuthHeaders()}).pipe(catchError(this.handleError));
     } catch (error) {
-      return throwError(() => new Error('Error updating doctor experience'));
+      return throwError(() => new Error('Error updating doctor experience: ' + error));
     }
   }
 
@@ -79,7 +80,7 @@ export class DoctorService {
       console.log("update doctor address Url: " + url);
       return this.http.put<Doctor>(url, address, {headers:this.getAuthHeaders()} ).pipe(catchError(this.handleError));
     } catch (error) {
-      return throwError(() => new Error('Error updating doctor address'));
+      return throwError(() => new Error('Error updating doctor address: '+ error));
     }
   }
 
@@ -89,7 +90,7 @@ export class DoctorService {
       console.log("Deleting doctor: " + url);
       return this.http.delete<void>(url, {headers:this.getAuthHeaders()}).pipe(catchError(this.handleError));
     } catch (error) {
-      return throwError(() => new Error('Error deleting doctor'));
+      return throwError(() => new Error('Error deleting doctor: ' + error));
     }
   }
 }

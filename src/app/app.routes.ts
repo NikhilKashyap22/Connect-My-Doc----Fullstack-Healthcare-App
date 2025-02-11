@@ -66,10 +66,10 @@ const routerConfig: Routes = [
   {path:'update-doctor-schedule',component:UpdateDoctorScheduleComponent,canActivate: [AuthGuard]},
 
   //Authentication
-  {path:'login',component:LoginComponent,canActivate: [AuthGuard]},
-  {path:'logout',component:LogoutComponent,canActivate: [AuthGuard]},
-  {path:'forgot',component:ForgotPasswordComponent,canActivate: [AuthGuard]},
-  {path:'register',component:RegisterComponent,canActivate: [AuthGuard]},
+  {path:'login',component:LoginComponent},
+  {path:'logout',component:LogoutComponent},
+  {path:'forgot',component:ForgotPasswordComponent},
+  {path:'register',component:RegisterComponent},
 ];
 
 export default routerConfig;

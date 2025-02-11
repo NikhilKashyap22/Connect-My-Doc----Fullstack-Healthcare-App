@@ -1,5 +1,5 @@
 import { environment } from './app/environments/environment';
-import { ErrorInterceptor } from './app/loggers/error.interceptor';
+// import { ErrorInterceptor } from './app/loggers/error.interceptor';
 import { ErrorHandlerService } from './app/loggers/error-handler.service';
 import { LoggerService } from './app/loggers/logger.service';
 import { bootstrapApplication } from '@angular/platform-browser';
@@ -22,7 +22,8 @@ bootstrapApplication(AppComponent, {
   providers: [
     LoggerService,
     { provide: ErrorHandler, useClass: ErrorHandlerService },
-    provideHttpClient(withInterceptors([ErrorInterceptor])),
+    provideHttpClient(),
+    // provideHttpClient(withInterceptors([ErrorInterceptor])),
     provideRouter(routerConfig),
     {provide:HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true},
     provideAnimationsAsync()

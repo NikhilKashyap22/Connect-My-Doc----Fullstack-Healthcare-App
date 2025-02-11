@@ -21,12 +21,16 @@ export class LoginComponent {
   login() {
     this.authService.login(this.userName, this.password).subscribe({
       next: (token) => {
+        if(token != "Error"){
         this.authService.saveToken(token);
         this.router.navigate(['/home']); // Redirect after login
+        }else if(token === "Error"){
+          console.log("Something went wrong");
+        }
       },
-      error: () => {
-        this.errorMessage = 'Invalid credentials!';
-      }
+      // error: (error) => {
+      //   this.errorMessage = error.message;
+      // }
     });
   }
 

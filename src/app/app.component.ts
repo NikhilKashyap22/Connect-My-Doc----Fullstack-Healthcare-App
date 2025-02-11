@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { ViewAllDoctorsComponent } from "./doctors/components/view-all-doctors/view-all-doctors.component";
 import { SidebarComponent } from "./shared/components/sidebar/sidebar.component";
@@ -18,12 +18,13 @@ import * as Sentry from '@sentry/angular';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent{
   title = 'CMD_UI';
   constructor(private router: Router) {
     // Initialize Sentry if DSN is available
     if (environment.sentryDsn) {
       Sentry.init({ dsn: environment.sentryDsn });
     }
+
   }
 }
