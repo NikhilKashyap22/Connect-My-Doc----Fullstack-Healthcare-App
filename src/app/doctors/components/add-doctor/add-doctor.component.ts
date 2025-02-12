@@ -9,13 +9,19 @@ import { LoggerService } from '../../../loggers/logger.service';
 @Component({
   selector: 'app-add-doctor',
   standalone: true,
-  imports: [FormsModule, NgFor,RouterModule],
+  imports: [FormsModule, NgFor, RouterModule],
   templateUrl: './add-doctor.component.html',
   styleUrl: './add-doctor.component.css'
 })
 export class AddDoctorComponent {
+  /**
+   * Controls the visibility of the form.
+   */
   isVisible = false;
 
+  /**
+   * Stores doctor details to be submitted.
+   */
   doctors: Doctor = {
     doctorId: '',
     firstName: '',
@@ -57,8 +63,22 @@ export class AddDoctorComponent {
     ]
   };
 
-  constructor(private doctorService: DoctorService, private router:Router, private loggerService:LoggerService) {}
+  /**
+   * Creates an instance of AddDoctorComponent.
+   * @param doctorService Service for handling doctor-related operations.
+   * @param router Angular Router for navigation.
+   * @param loggerService Service for logging errors.
+   */
+  constructor(
+    private doctorService: DoctorService,
+    private router: Router,
+    private loggerService: LoggerService
+  ) {}
 
+  /**
+   * Submits the doctor details to the server.
+   * Logs the response or error and navigates to the home page.
+   */
   public submitDoctor() {
     console.log(this.doctors);
     this.doctorService.addDoctor(this.doctors).subscribe(
@@ -70,9 +90,12 @@ export class AddDoctorComponent {
         this.loggerService.logError("Error detected: " + error);
       }
     );
-      this.router.navigate(['/']);
+    this.router.navigate(['/doctors']);
   }
 
+  /**
+   * Toggles the visibility of the doctor form.
+   */
   public displayForm() {
     this.isVisible = !this.isVisible;
   }

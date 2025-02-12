@@ -17,6 +17,10 @@ export const environment = {
   baseApiUrlClinic:'http://localhost:8085/api/Clinic',
   baseApiUrlAppointments:'http://localhost:8089/api',
 
+  // baseApiUrl: 'https://cmd-doctors-be-service.azurewebsites.net/api',
+  // baseApiUrlClinic:'https://cmd-clinic-be-service.azurewebsites.net/api/Clinic',
+  // baseApiUrlAppointments:'https://cmd-appointments-be-service.azurewebsites.net/api',
+
   services: {
     appointments: '/appointments',
     clinics: '/clinics',

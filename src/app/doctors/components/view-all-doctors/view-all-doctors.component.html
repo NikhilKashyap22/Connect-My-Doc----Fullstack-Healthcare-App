@@ -1,6 +1,6 @@
 <h2>List of doctors</h2>
 <div class="cl">
-  <button [routerLink]="['add-doctor']">Add Doctor</button>
+  <button class="add-doctor-btn" [routerLink]="['/add-doctor']">+<p class="text">Add doctor</p></button>
   <div class="table-responsive">
     <table>
       <thead>
@@ -52,11 +52,21 @@
               </li>
             </ul>
           </td> -->
-          <td class="btn-container">
+          <!-- <td class="btn-container">
             <button class="btn" (click)="updateAddress(doctor.doctorId)">Edit</button>
             <button class="btn" (click)="deleteDoctor(doctor.doctorId)">Delete</button>
             <button (click)="viewDoctor(doctor.doctorId)">View doctor</button>
-          </td>
+          </td> -->
+          <td>
+          <div class="dropdown">
+            <button class="ellipsis-btn">&#8942;</button>
+            <div class="dropdown-content">
+              <a (click)="deleteDoctor(doctor.doctorId)">Delete</a>
+              <a (click)="updateAddress(doctor.doctorId)">Edit</a>
+              <a (click)="viewDoctor(doctor.doctorId)">view</a>
+            </div>
+          </div>
+        </td>
         </tr>
       </tbody>
     </table>

@@ -10,21 +10,25 @@ import { CreateScheduleComponent } from "./doctor-schedule/components/create-sch
 import { LoginComponent } from "./authentications/components/login/login.component";
 import { environment } from './environments/environment';
 import * as Sentry from '@sentry/angular';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule, HeaderComponent, SidebarComponent, MainComponent],
+  imports: [RouterModule, HeaderComponent, SidebarComponent, MainComponent, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent{
   title = 'CMD_UI';
+
+  isLoginPage = false;
+
   constructor(private router: Router) {
-    // Initialize Sentry if DSN is available
+    this.router.events.subscribe(()=>{this.isLoginPage = this.router.url === '/login' || this.router.url === '/server' || this.router.url === '/register'})
+
     if (environment.sentryDsn) {
       Sentry.init({ dsn: environment.sentryDsn });
     }
-
   }
 }

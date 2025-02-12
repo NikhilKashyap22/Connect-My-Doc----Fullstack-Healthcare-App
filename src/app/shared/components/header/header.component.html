@@ -1,7 +1,7 @@
 <header class="header">
-  <div class="header-left">
-    <span class="logo">+ CMD</span>
-    <span class="subtitle">Connect My Doc</span>
+  <div class="header-left" routerLinkActive="router-link-active" >
+    <a class="logo" [routerLink]="['/dashboard']">+ CMD</a>
+    <a class="subtitle" [routerLink]="['/dashboard']">Connect My Doc</a>
   </div>
   <div class="header-right">
     <button class="icon-button">
@@ -11,8 +11,13 @@
       <span class="material-icons">settings</span>
     </button>
     <div class="profile">
-      <img src="" alt="Admin Avatar" class="avatar">
-      <span class="username">Admin</span>
+      <img src="assets/images/male-icon.png" alt="A" class="avatar" width="40" height="40">
+      <div class="dropdown">
+        <button class="ellipsis-btn">Admin</button>
+        <div class="dropdown-content">
+          <a (click)="logout()">Logout -></a>
+        </div>
     </div>
+  </div>
   </div>
 </header>

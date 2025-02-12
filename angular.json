@@ -21,7 +21,7 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/user.jpg",
+              "src/assets/images",
               {
                 "glob": "**/*",
                 "input": "public"

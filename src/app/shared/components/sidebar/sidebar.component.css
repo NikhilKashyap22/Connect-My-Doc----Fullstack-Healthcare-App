@@ -1,7 +1,7 @@
 .sidenav {
   background: #f2f2f2;
   transition: all 0.5s ease;
-  position: absolute;
+  position: fixed;
   z-index: 1;
   top: 0;
   width: 16.5625rem;

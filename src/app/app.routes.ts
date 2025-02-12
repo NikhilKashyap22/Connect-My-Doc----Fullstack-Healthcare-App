@@ -22,7 +22,6 @@ import { ViewDoctorByIdComponent } from './doctors/components/view-doctor-by-id/
 import { DoctorHomeComponent } from './doctors/doctor-home/doctor-home.component';
 
 //Authentication routing
-import { ForgotPasswordComponent } from './authentications/components/forgot-password/forgot-password.component';
 import { LoginComponent } from './authentications/components/login/login.component';
 import { LogoutComponent } from './authentications/components/logout/logout.component';
 import { RegisterComponent } from './authentications/components/register/register.component';
@@ -32,12 +31,15 @@ import { GetScheduleByIdComponent } from './doctor-schedule/components/get-sched
 import { UpdateDoctorScheduleComponent } from './doctor-schedule/components/update-doctor-schedule/update-doctor-schedule.component';
 import { DoctorScheduleHomeComponent } from './doctor-schedule/doctor-schedule-home/doctor-schedule-home.component';
 import { AuthGuard } from './authentications/guards/auth.guard';
+import { PatientsComponent } from './patients/patients.component';
+import { ServerDownComponent } from './authentications/components/server-down/server-down.component';
+import { DashboardComponent } from './shared/components/dashboard/dashboard.component';
 
 
 const routerConfig: Routes = [
   //Default Routing
   {path:'', redirectTo:'/login', pathMatch:'full'},
-  {path:'home',component:DoctorHomeComponent,title:'Home Page', canActivate: [AuthGuard]},
+  {path:'dashboard',component:DashboardComponent,title:'Home Page', canActivate: [AuthGuard]},
   {path:'doctor-schedules',component:DoctorScheduleHomeComponent,title:'Doctor schedule',canActivate: [AuthGuard]},
 
   //Appointment routing paths
@@ -50,14 +52,14 @@ const routerConfig: Routes = [
   //Clinics routing paths
   {path:'add-clinic',component:AddClinicComponent,canActivate: [AuthGuard]},
   {path:'edit-clinic',component:EditClinicComponent,canActivate: [AuthGuard]},
-  {path:'home/view-all-clinics',component:ViewAllClinicsComponent,canActivate: [AuthGuard]},
+  {path:'view-all-clinics',component:ViewAllClinicsComponent,canActivate: [AuthGuard]},
   {path:'view-clinic-by-id',component:ViewClinicByIdComponent,canActivate: [AuthGuard]},
 
   //Doctors routing paths
-  {path:'home/add-doctor',component:AddDoctorComponent,canActivate: [AuthGuard]},
-  {path:'home/edit-doctor',component:EditDoctorComponent,canActivate: [AuthGuard]},
-  {path:'view-all-doctors',component:ViewAllDoctorsComponent,canActivate: [AuthGuard]},
-  {path:'home/view-doctor-by-id',component:ViewDoctorByIdComponent,canActivate: [AuthGuard]},
+  {path:'add-doctor',component:AddDoctorComponent,canActivate: [AuthGuard]},
+  {path:'edit-doctor',component:EditDoctorComponent,canActivate: [AuthGuard]},
+  {path:'doctors',component:ViewAllDoctorsComponent,canActivate: [AuthGuard]},
+  {path:'view-doctor-by-id',component:ViewDoctorByIdComponent,canActivate: [AuthGuard]},
 
   //Doctor Schedule Routes
   {path:'create-schedule',component:CreateScheduleComponent,canActivate: [AuthGuard]},
@@ -68,8 +70,14 @@ const routerConfig: Routes = [
   //Authentication
   {path:'login',component:LoginComponent},
   {path:'logout',component:LogoutComponent},
-  {path:'forgot',component:ForgotPasswordComponent},
+  {path:'server',component:ServerDownComponent},
   {path:'register',component:RegisterComponent},
+
+  //Patients
+ {path:'patients',component:PatientsComponent},
+ {path:'departments',component:PatientsComponent},
+ {path:'services',component:PatientsComponent},
+ {path:'assets',component:PatientsComponent}
 ];
 
 export default routerConfig;

@@ -42,3 +42,5 @@ export interface Qualification {
   startYear: string;
   endYear:string;
 }
+
+export class DoctorModel{}

@@ -18,9 +18,9 @@ interface NavigationItem {
 export class SidebarComponent {
   navigation: NavigationItem[] = [
     { name: 'Dashboard', route: '/dashboard', icon: 'dashboard'},
-    { name: 'Doctors', route: '/home', icon: 'groups'},
+    { name: 'Doctors', route: '/doctors', icon: 'groups'},
     { name: 'Patients', route: '/patients', icon: 'person'},
-    { name: 'Clinic', route: '/home/view-all-clinics', icon: 'business'},
+    { name: 'Clinic', route: '/view-all-clinics', icon: 'business'},
     { name: 'Appointments', route: '/appointments', icon: 'event'},
     { name: 'Doctor Schedule', route: '/doctor-schedules', icon: 'assignment'},
     { name: 'Departments', route: '/departments', icon: 'apartment'},

@@ -23,9 +23,9 @@ export class LoginComponent {
       next: (token) => {
         if(token != "Error"){
         this.authService.saveToken(token);
-        this.router.navigate(['/home']); // Redirect after login
+        this.router.navigate(['/dashboard']); // Redirect after login
         }else if(token === "Error"){
-          console.log("Something went wrong");
+          this.router.navigate(['/server'])
         }
       },
       // error: (error) => {
