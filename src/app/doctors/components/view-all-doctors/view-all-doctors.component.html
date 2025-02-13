@@ -5,68 +5,37 @@
     <table>
       <thead>
         <tr>
-          <th>Doctor ID</th> <!-- needed-->
-          <th>Name</th> <!-- needed-->
-          <th>Phone Number</th> <!-- needed-->
-          <!-- <th>Date of Birth</th> -->
+          <th>Doctor ID</th>
+          <th>Name</th>
+          <th>Phone Number</th>
           <th>Email</th>
-          <th>Experience</th> <!-- needed-->
-          <!-- <th>Gender</th> -->
-          <th>Status</th> <!-- needed-->
-          <!-- <th>Address</th> -->
-          <th>Specialization</th> <!-- needed-->
-          <!-- <th>Experiences</th> -->
-          <!-- <th>Qualifications</th> -->
-          <th>Edit Data</th>
+          <th>Experience</th>
+          <th>Status</th>
+          <th>Specialization</th>
+          <th>Edit</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let doctor of doctors">
-          <td>{{ doctor.doctorId }}</td> <!-- needed-->
-          <td>{{ doctor.firstName | doctorNameFormatter }} {{ doctor.lastName }}</td> <!-- needed-->
-          <td>{{ doctor.phoneNum }}</td> <!-- needed-->
-          <!-- <td>{{ doctor.dateOfBirth }}</td> -->
+          <td>{{ doctor.doctorId }}</td>
+          <td>{{ doctor.firstName | doctorNameFormatter }} {{ doctor.lastName }}</td>
+          <td>{{ doctor.phoneNum }}</td>
           <td>{{ doctor.email }}</td>
-          <td *ngFor="let exp of doctor.experiences">{{ exp.experienceInYears }} years</td> <!-- needed-->
-          <!-- <td>{{ doctor.gender }}</td> -->
-          <td>{{ doctor.status }}</td> <!-- needed-->
-          <!-- <td>
-            {{ doctor.address.houseName }}, {{ doctor.address.city }},
-            {{ doctor.address.state }},{{ doctor.address.zipCode }}
-          </td> -->
+          <td *ngFor="let exp of doctor.experiences">{{ exp.experienceInYears }} years</td>
+          <td>{{ doctor.status }}</td>
           <td>
-            {{ doctor.specialization.specializationType }} <br> <!-- needed-->
-            <!-- {{ doctor.specialization.specializationDescription }} -->
+            {{ doctor.specialization.specializationType }}
           </td>
-          <!-- <td>
-            <ul>
-              <li *ngFor="let exp of doctor.experiences">
-                {{ exp.clinicName }} - {{ exp.role }} ({{ exp.experienceInYears }} years)
-              </li>
-            </ul>
-          </td> -->
-          <!-- <td>
-            <ul>
-              <li *ngFor="let qual of doctor.qualifications">
-                {{ qual.degree }} from {{ qual.university }} ({{ qual.startYear }} - {{ qual.endYear }})
-              </li>
-            </ul>
-          </td> -->
-          <!-- <td class="btn-container">
-            <button class="btn" (click)="updateAddress(doctor.doctorId)">Edit</button>
-            <button class="btn" (click)="deleteDoctor(doctor.doctorId)">Delete</button>
-            <button (click)="viewDoctor(doctor.doctorId)">View doctor</button>
-          </td> -->
           <td>
           <div class="dropdown">
             <button class="ellipsis-btn">&#8942;</button>
             <div class="dropdown-content">
               <a (click)="deleteDoctor(doctor.doctorId)">Delete</a>
               <a (click)="updateAddress(doctor.doctorId)">Edit</a>
-              <a (click)="viewDoctor(doctor.doctorId)">view</a>
+              <a (click)="viewDoctor(doctor.doctorId)">View</a>
             </div>
           </div>
-        </td>
+          </td>
         </tr>
       </tbody>
     </table>

@@ -1,18 +1,17 @@
 <h2>Update Doctor Schedule</h2>
-
-<div *ngIf="doctorSchedule">
+<div *ngIf="doctorSchedule" class="cl">
   <p><strong>ID:</strong> {{ doctorSchedule.doctorId }}</p>
 <form (ngSubmit) = 'updateSchedule()'>
   <div class="row">
     <div class="col-sm-6">
+      <label>Schedule Name <span class="text-danger">*</span></label>
       <div class="form-group">
-        <label>Schedule Name <span class="text-danger">*</span></label>
         <input class="form-control" type="text" [(ngModel)]="doctorSchedule.name" name="scheduleName" required>
       </div>
     </div>
     <div class="col-sm-6">
+      <label>Day of the week <span class="text-danger">*</span></label>
       <div class="form-group">
-        <label>Day of the week <span class="text-danger">*</span></label>
         <div class="form-check">
           <input type="radio" id="offline" name="weekDay" [(ngModel)]="doctorSchedule.weekDay" value="MONDAY" class="form-check-input">
           <label class="form-check-label" for="monday">MONDAY</label>
@@ -44,20 +43,20 @@
       </div>
     </div>
     <div class="col-sm-6">
+      <label>Start Time<span class="text-danger">*</span></label>
       <div class="form-group">
-        <label>Start Time<span class="text-danger">*</span></label>
         <input class="form-control" type="time" [(ngModel)]="doctorSchedule.startTime" name="startTime" required>
       </div>
     </div>
     <div class="col-sm-6">
+      <label>End Time <span class="text-danger">*</span></label>
       <div class="form-group">
-        <label>End Time <span class="text-danger">*</span></label>
         <input class="form-control" type="time" [(ngModel)]="doctorSchedule.endTime" name="endTime" required>
       </div>
     </div>
     <div class="col-sm-6">
+      <label>Availability Mode <span class="text-danger">*</span></label>
       <div class="form-group">
-        <label>Availability Mode <span class="text-danger">*</span></label>
         <div class="form-check">
           <input type="radio" id="offline" name="availabilityMode" [(ngModel)]="doctorSchedule.availabilityMode" value="OFFLINE" class="form-check-input">
           <label class="form-check-label" for="offline">OFFLINE</label>
@@ -69,8 +68,8 @@
       </div>
     </div>
     <div class="col-sm-6">
+      <label>Clinic ID: <span class="text-danger">*</span></label>
       <div class="form-group">
-        <label>Clinic ID: <span class="text-danger">*</span></label>
         <input class="form-control" type="text" [(ngModel)]="doctorSchedule.clinicId" name="clinicName" required>
       </div>
     </div>

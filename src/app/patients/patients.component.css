@@ -1,12 +1,13 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'poppins', sans-serif;
   background-color: #f4f4f4;
   text-align: center;
   padding: 50px;
 }
 .container {
   max-width: 600px;
-  margin-top: 20px;
+  text-align: center;
+  margin-top: 200px;
   background: white;
   padding: 20px;
   border-radius: 10px;
@@ -19,10 +20,11 @@ p {
   color: #333;
 }
 .icon {
+  margin-bottom: 20px;
   font-size: 50px;
-  animation: blink 1s infinite alternate;
+  animation: blink 0.7s infinite alternate;
 }
 @keyframes blink {
   from { opacity: 1; }
-  to { opacity: 0.5; }
+  to { opacity: 0.2; }
 }

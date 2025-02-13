@@ -87,7 +87,7 @@ export class ViewAllAppointmentsComponent implements OnInit {
 
   public scheduleAppointment(): void {
     // connect and route to schedule appointment endpoint
-    this.router.navigate(['/home/schedule-appointment']);
+    this.router.navigate(['/schedule-appointment']);
   }
 
 

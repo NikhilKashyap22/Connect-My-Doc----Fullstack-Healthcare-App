@@ -1,23 +1,23 @@
 .cl {
-  max-width: 100%;
+  max-width: 80vw;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   height: 80%;
   display: flex;
   flex-direction: column;
   align-items: end;
-  margin-left: 5rem;
+  margin-left: 200px;
 }
 
 h2{
   margin-top: 2rem;
-  margin-left: 5rem;
+  margin-left: 250px;
 }
 
 .table-responsive {
   max-width: 100%;
   display: block;
-  white-space: nowrap; /* Prevents text from wrapping */
+  white-space: nowrap;
   margin-top:10px;
 }
 
@@ -59,6 +59,7 @@ th{
     border-radius: 100%;
     content-visibility: hidden;
   }
+  transition: 0.3s ease;
 }
 
 .add-doctor-btn:hover{
@@ -72,7 +73,6 @@ th{
   }
 }
 
-/* Action Button */
 .ellipsis-btn {
   background: none;
   border: none;
@@ -87,7 +87,6 @@ th{
   transform: scale(1.1);
 }
 
-/* Dropdown Styling */
 .dropdown {
   width: 100%;
   position: relative;
@@ -98,7 +97,7 @@ th{
   display: none;
   position: absolute;
   right: 0;
-  top: 100%; /* Default position: below the button */
+  top: 100%;
   background: white;
   min-width: 100px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -121,7 +120,6 @@ th{
   color: white;
 }
 
-/* Show dropdown on hover */
 .dropdown:hover .dropdown-content {
   display: block;
 }
@@ -131,7 +129,7 @@ table tbody tr:last-child .dropdown-content {
   top: auto;
 }
 
-/* Improve cursor experience */
+
 .dropdown-content a:hover {
   cursor: pointer;
 }
@@ -142,7 +140,7 @@ table tbody tr:last-child .dropdown-content {
   }
 
   th, td {
-    font-size: 14px; /* Adjust font size for smaller screens */
+    font-size: 14px;
     padding: 8px;
   }
 }

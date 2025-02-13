@@ -77,25 +77,23 @@
 /* Action Button */
 .ellipsis-btn {
   background: none;
-  font-size: 18px;
   cursor: pointer;
   color: white;
   font-family: 'poppins',sans-serif;
   transition: 0.2s ease-in-out;
   width: 100%;
-  border: 1px solid black;
-  border-radius: 18px;
+  border: none;
+  >img{
+    margin-top: 7px;
+    height: 100%;
+    width: 60%;
+  }
 }
 
-.ellipsis-btn:hover {
-  background-color: rgb(230, 25, 63);
-}
 
 /* Dropdown Styling */
 .dropdown {
   width: 75px;
-  border: 2px solid black;
-  border-radius: 18px;
   position: relative;
   display: inline-block;
 }

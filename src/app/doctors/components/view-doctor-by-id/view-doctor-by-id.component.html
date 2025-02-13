@@ -1,66 +1,58 @@
-<div class="cl">
-  <div *ngIf="doctor">
-  <table>
-    <thead>
-      <tr>
-        <th>Doctor ID</th>
-        <th>Name</th>
-        <th>Phone Number</th>
-        <th>Date of Birth</th>
-        <th>Email</th>
-        <th>Experience (Years)</th>
-        <th>Gender</th>
-        <th>Status</th>
-        <th>Address</th>
-        <th>Specialization</th>
-        <th>Experiences</th>
-        <th>Qualifications</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{ doctor.doctorId }}</td>
-        <td>{{ doctor.firstName | doctorNameFormatter }} {{ doctor.lastName }}</td>
-        <td>{{ doctor.phoneNum }}</td>
-        <td>{{ doctor.dateOfBirth }}</td>
-        <td>{{ doctor.email }}</td>
-        <td *ngFor="let exp of doctor.experiences">{{ exp.experienceInYears}}</td>
-        <td>{{ doctor.gender }}</td>
-        <td>{{ doctor.status }}</td>
-
-        <!-- Address (Nested Object) -->
-        <td>
-          {{ doctor.address.houseName }}, {{ doctor.address.city }},
-          {{ doctor.address.state }}, {{ doctor.address.country }},
-          {{ doctor.address.zipCode }}
-        </td>
-
-        <!-- Specialization (Nested Object) -->
-        <td>
-          {{ doctor.specialization.specializationType }} <br>
-          {{ doctor.specialization.specializationDescription }}
-        </td>
-
-        <!-- Experiences (Array) -->
-        <td>
-          <ul>
-            <li *ngFor="let exp of doctor.experiences">
-              {{ exp.clinicName }} - {{ exp.role }} ({{ exp.experienceInYears }} years)
-            </li>
-          </ul>
-        </td>
-
-        <!-- Qualifications (Array) -->
-        <td>
-          <ul>
-            <li *ngFor="let qual of doctor.qualifications">
-              {{ qual.degree }} from {{ qual.university }} ({{ qual.startYear }} - {{ qual.endYear }})
-            </li>
-          </ul>
-        </td>
-      </tr>
-    </tbody>
-    </table>
-    <button class="btn" [routerLink]="['/doctors']" >Go back</button>
+<div class="doctor-profile" *ngIf="doctor">
+  <!-- Profile Header -->
+  <div class="profile-header">
+    <div class="avatar">
+      <img src="assets/images/male-icon.png" alt="Doctor Image">
+    </div>
+    <div class="profile-info">
+      <h2>{{ doctor.firstName | doctorNameFormatter }} {{ doctor.lastName }}</h2>
+      <p><strong>Specialization:</strong> {{ doctor.specialization.specializationType }}</p>
+      <p><strong>Experience:</strong>
+        <span *ngFor="let exp of doctor.experiences">{{ exp.experienceInYears }} </span> years
+      </p>
+    </div>
   </div>
+
+  <!-- Main Details Section -->
+  <div class="details-grid">
+    <div class="detail-item"><strong>ID:</strong> {{ doctor.doctorId }}</div>
+    <div class="detail-item"><strong>Phone:</strong> {{ doctor.phoneNum }}</div>
+    <div class="detail-item"><strong>Email:</strong> {{ doctor.email }}</div>
+    <div class="detail-item"><strong>DOB:</strong> {{ doctor.dateOfBirth }}</div>
+    <div class="detail-item"><strong>Gender:</strong> {{ doctor.gender }}</div>
+    <div class="detail-item"><strong>Status:</strong> {{ doctor.status }}</div>
+  </div>
+
+  <!-- Address Section -->
+  <div class="info-card address">
+    <h3>Address</h3>
+    <p>
+      {{ doctor.address.houseName }}, {{ doctor.address.city }},
+      {{ doctor.address.state }}, {{ doctor.address.country }},
+      {{ doctor.address.zipCode }}
+    </p>
+  </div>
+
+  <!-- Experience Section -->
+  <div class="info-card experiences">
+    <h3>Work Experience</h3>
+    <ul>
+      <li *ngFor="let exp of doctor.experiences">
+        <strong>{{ exp.clinicName }}</strong> - {{ exp.role }} ({{ exp.experienceInYears }} years)
+      </li>
+    </ul>
+  </div>
+
+  <!-- Qualification Section -->
+  <div class="info-card qualifications">
+    <h3>Qualifications</h3>
+    <ul>
+      <li *ngFor="let qual of doctor.qualifications">
+        {{ qual.degree }} from {{ qual.university }} ({{ qual.startYear }} - {{ qual.endYear }})
+      </li>
+    </ul>
+  </div>
+
+  <!-- Go Back Button -->
+  <button class="btn" [routerLink]="['/doctors']">Go back</button>
 </div>

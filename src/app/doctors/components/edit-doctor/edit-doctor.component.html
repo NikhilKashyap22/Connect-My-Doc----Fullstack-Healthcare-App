@@ -1,20 +1,11 @@
+<div *ngIf="doctor">
+  <h3>Doctor Details</h3>
+  <p><strong>ID:</strong> {{ doctor.doctorId }}</p>
+  <p><strong>Name:</strong> {{ doctor.firstName }} {{doctor.lastName}}</p>
+</div>
 <div class="container">
-  <h2>Edit Doctor</h2>
-
-  <!-- Fetch Doctor by ID -->
-  <!-- <div>
-    <label>Doctor ID:</label>
-    <input type="text" [(ngModel)]="doctorId" placeholder="Doctor ID">
-  </div> -->
-
-  <div *ngIf="doctor">
-    <h3>Doctor Details</h3>
-    <p><strong>ID:</strong> {{ doctor.doctorId }}</p>
-    <p><strong>Name:</strong> {{ doctor.firstName }} {{doctor.lastName}}</p>
-
-    <!-- Update Experience -->
     <div class="exp">
-      <h4>Update Experience</h4>
+      <h6>Update Experience</h6>
       <label>Update YOE :</label>
       <input type="number" [(ngModel)]="newExperience.experienceInYears">
       <label>Update Role:</label>
@@ -25,14 +16,8 @@
       <input type="text" [(ngModel)]="newExperience.clinicName">
       <button (click)="updateExperience()">Update Experience</button>
     </div>
-</div>
-</div>
-
-
-<div class="container">
-    <!-- Update Address -->
     <div class="add">
-      <h4>Update Address</h4>
+      <h6>Update Address</h6>
       <label>Street:</label>
       <input type="text" [(ngModel)]="newAddress.houseName">
       <label>City:</label>
@@ -44,4 +29,3 @@
       <button (click)="updateAddress()">Update Address</button>
     </div>
 </div>
-

@@ -17,15 +17,15 @@ interface NavigationItem {
 })
 export class SidebarComponent {
   navigation: NavigationItem[] = [
-    { name: 'Dashboard', route: '/dashboard', icon: 'dashboard'},
-    { name: 'Doctors', route: '/doctors', icon: 'groups'},
-    { name: 'Patients', route: '/patients', icon: 'person'},
-    { name: 'Clinic', route: '/view-all-clinics', icon: 'business'},
-    { name: 'Appointments', route: '/appointments', icon: 'event'},
-    { name: 'Doctor Schedule', route: '/doctor-schedules', icon: 'assignment'},
-    { name: 'Departments', route: '/departments', icon: 'apartment'},
-    { name: 'Services', route: '/services', icon: 'work'},
-    { name: 'Assets', route: '/assets', icon: 'inventory_2'}
+    { name: 'Dashboard', route: '/dashboard', icon: '/assets/images/dashboard-solid-24.png'},
+    { name: 'Appointments', route: '/appointments', icon: '/assets/images/calendar-check-solid-24.png'},
+    { name: 'Doctors', route: '/doctors', icon: '/assets/images/injection-solid-24.png'},
+    { name: 'Doctor Schedules', route: '/doctor-schedules', icon: '/assets/images/stopwatch-solid-24.png'},
+    { name: 'Clinics', route: '/view-all-clinics', icon: '/assets/images/plus-medical-regular-24.png'},
+    { name: 'Patients', route: '/patients', icon: '/assets/images/body-regular-24.png'},
+    { name: 'Departments', route: '/departments', icon: '/assets/images/id-card-solid-24.png'},
+    { name: 'Services', route: '/services', icon: '/assets/images/handicap-regular-24.png'},
+    { name: 'Assets', route: '/assets', icon: '/assets/images/brightness-solid-24.png'}
   ];
 
   constructor(private router: Router) {}

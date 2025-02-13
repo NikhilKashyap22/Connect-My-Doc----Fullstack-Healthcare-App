@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
 import { AuthService } from "../../../authentications/services/auth.service";
 import { Router, RouterModule } from "@angular/router";
+import { MatDialog } from "@angular/material/dialog";
+import { LogoutComponent } from "../../../authentications/components/logout/logout.component";
 
 
 @Component({
@@ -14,12 +16,19 @@ import { Router, RouterModule } from "@angular/router";
 
 export class HeaderComponent{
 
-  constructor(private autheService:AuthService, private router:Router){}
+  constructor(private autheService:AuthService, private router:Router, private dialog:MatDialog){}
 
   public logout(){
-    confirm("are you sure you want to logout?")
-    this.autheService.logout();
-    this.router.navigate([''])
+    const dialogRef = this.dialog.open(LogoutComponent);
+
+    dialogRef.afterClosed().subscribe(result =>{
+      if(result){
+        this.autheService.logout();
+        this.router.navigate([''])
+      } else{
+        this.router.navigate(['/dashboard']);
+      }
+    })
   }
 
 }
