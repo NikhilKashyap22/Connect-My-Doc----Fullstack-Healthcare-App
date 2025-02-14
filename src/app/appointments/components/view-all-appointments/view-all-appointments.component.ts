@@ -22,7 +22,7 @@ import { query } from '@angular/animations';
 @Component({
   selector: 'app-view-all-appointments',
   standalone: true,
-  imports: [NgFor, NgIf, NgClass, DatePipe, FormsModule, RouterModule, AgGridModule, FontAwesomeModule],
+  imports: [NgFor, NgClass, DatePipe, FormsModule, RouterModule, AgGridModule, FontAwesomeModule],
   templateUrl: './view-all-appointments.component.html',
   styleUrls: ['./view-all-appointments.component.css']
 })
