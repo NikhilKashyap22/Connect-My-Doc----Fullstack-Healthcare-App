@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Output } from "@angular/core";
 import { AuthService } from "../../../authentications/services/auth.service";
 import { Router, RouterModule } from "@angular/router";
 import { MatDialog } from "@angular/material/dialog";
@@ -15,6 +15,7 @@ import { LogoutComponent } from "../../../authentications/components/logout/logo
 
 
 export class HeaderComponent{
+  @Output() toggle = new EventEmitter<void>();
 
   constructor(private autheService:AuthService, private router:Router, private dialog:MatDialog){}
 
@@ -29,6 +30,11 @@ export class HeaderComponent{
         this.router.navigate(['/dashboard']);
       }
     })
+  }
+
+
+  public toggleSidebar(){
+    this.toggle.emit();
   }
 
 }

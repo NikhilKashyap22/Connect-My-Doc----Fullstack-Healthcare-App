@@ -1,26 +1,33 @@
-<div class="edit-appointment-container">
-  <h2>Edit Appointment</h2>
-
-  <form [formGroup]="appointmentForm" (ngSubmit)="rescheduleAppointment()">
-    <label for="appointmentDate">Appointment Date:</label>
-    <input
-      type="date"
-      id="appointmentDate"
-      formControlName="appointmentDate"
-      required
-    />
-
-    <label for="appointmentTime">Appointment Time:</label>
-    <input
-      type="time"
-      id="appointmentTime"
-      formControlName="appointmentTime"
-      required
-    />
-
-    <button type="submit" [disabled]="appointmentForm.invalid">
-      Reschedule
-    </button>
-    <button type="button" (click)="cancel()">Cancel</button>
-  </form>
+<div class="page-wrapper">
+  <div class="content">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <h4 class="page-title">Edit Appointment</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <form [formGroup]="appointmentForm" (ngSubmit)="rescheduleAppointment()">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="appointmentDate">Appointment Date</label>
+                <input type="date" id="appointmentDate" formControlName="appointmentDate" class="form-control" required />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="appointmentTime">Appointment Time</label>
+                <input type="time" id="appointmentTime" formControlName="appointmentTime" class="form-control" required />
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <button type="submit" class="btn btn-primary mr-2" [disabled]="appointmentForm.invalid">Reschedule</button>
+            <button type="button" class="btn btn-danger ml-2" (click)="cancel()">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

@@ -34,20 +34,20 @@ import { AuthGuard } from './authentications/guards/auth.guard';
 import { PatientsComponent } from './patients/patients.component';
 import { ServerDownComponent } from './authentications/components/server-down/server-down.component';
 import { DashboardComponent } from './shared/components/dashboard/dashboard.component';
+import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 
 
 const routerConfig: Routes = [
   //Default Routing
   {path:'', redirectTo:'/login', pathMatch:'full'},
-  {path:'dashboard',component:DashboardComponent,title:'Home Page', canActivate: [AuthGuard]},
+  {path:'dashboard',component:DashboardComponent,title:'CMD - Medical & Hospital Application', canActivate: [AuthGuard]},
   {path:'doctor-schedules',component:DoctorScheduleHomeComponent,title:'Doctor schedule',canActivate: [AuthGuard]},
 
   //Appointment routing paths
-  {path:'cancel', component:CancelAppointmentComponent,canActivate: [AuthGuard]},
-  {path:'edit-appointment', component:EditAppointmentComponent,canActivate: [AuthGuard]},
+  {path:'edit-appointment/:appointmentId', component:EditAppointmentComponent,canActivate: [AuthGuard]},
   {path:'schedule-appointment', component:ScheduleAppointmentComponent,canActivate: [AuthGuard]},
-  {path:'appointments', component:ViewAllAppointmentsComponent,canActivate: [AuthGuard]},
-  {path:'view-appointment-by-id', component:ViewAppointmentByIdComponent,canActivate: [AuthGuard]},
+  {path:'view-all-appointments', component:ViewAllAppointmentsComponent,canActivate: [AuthGuard]},
+  {path:'view-appointment-by-id/:appointmentId', component:ViewAppointmentByIdComponent,canActivate: [AuthGuard]},
 
   //Clinics routing paths
   {path:'add-clinic',component:AddClinicComponent,canActivate: [AuthGuard]},
@@ -77,7 +77,10 @@ const routerConfig: Routes = [
  {path:'patients',component:PatientsComponent},
  {path:'departments',component:PatientsComponent},
  {path:'services',component:PatientsComponent},
- {path:'assets',component:PatientsComponent}
+ {path:'assets',component:PatientsComponent},
+
+
+ {path:'sidebar',component:SidebarComponent}
 ];
 
 export default routerConfig;

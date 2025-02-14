@@ -17,7 +17,7 @@ import { CommonModule } from '@angular/common';
 
 // 3.Class
 export class EditAppointmentComponent implements OnInit {
-  
+
   //4. Properties
   appointmentForm: FormGroup;
   appointmentId!: string; //  Non-null assertion to fix TS error
@@ -39,15 +39,15 @@ export class EditAppointmentComponent implements OnInit {
 //6.On-Init
   ngOnInit(): void {
     this.appointmentId = this.route.snapshot.paramMap.get('appointmentId') || '';
-      
+
     if (this.appointmentId) {
       this.fetchAppointmentDetails();
     } else {
       this.errorMessage = 'Appointment ID is missing';
     }
-    
+
   }
-  
+
   //7. Functional Methods
   private fetchAppointmentDetails(): void {
     this.appointmentService.getAppointmentById(this.appointmentId).subscribe({
@@ -71,46 +71,46 @@ export class EditAppointmentComponent implements OnInit {
 
   public rescheduleAppointment(): void {
     if (this.appointmentForm.invalid) return;
-    
+
     const formattedDate = this.formatDateToDDMMYYYY(this.appointmentForm.value.appointmentDate);
     const formattedTime = this.formatTimeToHHMM(this.appointmentForm.value.appointmentTime);
-    
+
     const updatedAppointment: IAppointment = {
       ...this.appointmentDetails!,
       appointmentDate: formattedDate, // Sending formatted date
       appointmentTime: formattedTime  // Sending formatted time
     };
-    
+
     this.appointmentService.rescheduleAppointment(this.appointmentId, updatedAppointment).subscribe({
       next: () => this.handleSuccess(),
       error: (error) => this.handleError(error)
     });
   }
-  
-  
-  
+
+
+
   //8. Event Handling methods
   private handleSuccess(): void {
     console.log('Appointment rescheduled successfully');
-    this.router.navigate(['/view-all-appointments']); 
+    this.router.navigate(['/view-all-appointments']);
   }
-  
+
   private handleError(error: any): void {
     this.errorMessage = 'Error rescheduling appointment. Please try again later.';
     console.error('Error rescheduling appointment:', error);
   }
-  
+
   public cancel(): void {
     this.router.navigate(['/view-all-appointments']);
   }
-  
+
     private formatDateToDDMMYYYY(dateString: string): string {
       const [year, month, day] = dateString.split('-'); // Splitting YYYY-MM-DD
       return `${day}-${month}-${year}`; // Rearranging to DD-MM-YYYY
     }
-    
+
     private formatTimeToHHMM(timeString: string): string {
       return timeString.substring(0, 5); // Extracts HH:mm from HH:mm:ss
     }
-    
+
 }

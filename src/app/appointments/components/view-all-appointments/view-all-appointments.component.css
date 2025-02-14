@@ -1,86 +1,63 @@
-.content {
-  padding: 20px;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-/* Ensure icons are visible */
-button i {
-  font-size: 16px; /* Adjust as necessary */
-  color: black; /* Ensure a visible color */
-}
-
-.add-btn {
-  background-color: #007bff;
-  color: white;
+.ellipsis-btn {
+  background: none;
   border: none;
-  padding: 10px 15px;
-  border-radius: 20px;
+  font-size: 22px;
   cursor: pointer;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-}
-
-.add-btn i {
-  margin-right: 5px;
-}
-
-.table-controls {
-  margin-bottom: 10px;
-}
-
-#entries {
-  margin: 0 5px;
-  padding: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.table-container {
-  overflow-x: auto;
-}
-
-.appointment-table {
+  transition: 0.2s ease-in-out;
   width: 100%;
-  height: 100%;
-  border-collapse: collapse;
+}
+
+.ellipsis-btn:hover {
+  color: #007bff;
+  transform: scale(1.1);
+}
+
+.dropdown {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
   background: white;
+  min-width: 100px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
   border-radius: 5px;
+  overflow: hidden;
 }
 
-.appointment-table th,
-.appointment-table td {
-  padding: 12px;
-  text-align: left;
+.dropdown-content a {
+  display: block;
+  padding: 8px 12px;
+  color: #000000;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
 }
 
-.appointment-table th {
+.dropdown-content a:hover {
   background: #007bff;
-  font-weight: bold;
+  color: white;
 }
 
-.appointment-table tr {
-  border-bottom: 1px solid #e0e0e0;
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
-.avatar {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  margin-right: 10px;
-  vertical-align: middle;
+table tbody tr:last-child .dropdown-content {
+  bottom: 100%;
+  top: auto;
 }
 
-.text-right {
-  text-align: right;
-}
 
+.dropdown-content a:hover {
+  cursor: pointer;
+}
 .status-scheduled {
   background-color: #a1e3f9;
   color: #3674b5;
@@ -100,53 +77,4 @@ button i {
   color: white;
   padding: 5px 10px;
   border-radius: 5px;
-}
-
-/* Style the button container */
-.action-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  color: #333;
-}
-
-/* Style the icons inside the dropdown */
-.dropdown-content a {
-  display: flex;
-  align-items: center;
-  padding: 8px 12px;
-  text-decoration: none;
-  color: #333;
-  transition: background 0.2s ease-in-out;
-}
-
-.dropdown-content a:hover {
-  background: #f1f1f1;
-}
-
-/* Style the fa-icons */
-fa-icon {
-  margin-right: 8px;
-  font-size: 16px;
-}
-
-/* Dropdown styling */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  min-width: 120px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  z-index: 1000;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
 }

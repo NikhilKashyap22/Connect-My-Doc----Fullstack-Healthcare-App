@@ -1,58 +1,98 @@
-<div class="doctor-profile" *ngIf="doctor">
-  <!-- Profile Header -->
-  <div class="profile-header">
-    <div class="avatar">
-      <img src="assets/images/male-icon.png" alt="Doctor Image">
+<div class="page-wrapper" *ngIf="doctor">
+  <div class="content">
+    <div class="row">
+      <div class="col-sm-7 col-6">
+        <h4 class="page-title">My Profile</h4>
+      </div>
     </div>
-    <div class="profile-info">
-      <h2>{{ doctor.firstName | doctorNameFormatter }} {{ doctor.lastName }}</h2>
-      <p><strong>Specialization:</strong> {{ doctor.specialization.specializationType }}</p>
-      <p><strong>Experience:</strong>
-        <span *ngFor="let exp of doctor.experiences">{{ exp.experienceInYears }} </span> years
-      </p>
+
+    <div class="card-box profile-header">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="profile-view">
+            <div class="profile-img-wrap">
+              <div class="profile-img">
+                <a href="#"><img class="avatar" [src]="'assets/img/user.jpg'" alt="Doctor Image"></a>
+              </div>
+            </div>
+            <div class="profile-basic">
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="profile-info-left">
+                    <h3 class="user-name m-t-0 mb-0">{{ doctor.firstName | doctorNameFormatter }} {{ doctor.lastName }}</h3>
+                    <small class="text-muted">{{ doctor.specialization.specializationType }}</small>
+                    <div class="staff-id">Doctor ID: {{ doctor.doctorId }}</div>
+                  </div>
+                </div>
+                <div class="col-md-7">
+                  <ul class="personal-info">
+                    <li><span class="title">Phone:</span> <span class="text">{{ doctor.phoneNum }}</span></li>
+                    <li><span class="title">Email:</span> <span class="text">{{ doctor.email }}</span></li>
+                    <li><span class="title">Birthday:</span> <span class="text">{{ doctor.dateOfBirth }}</span></li>
+                    <li><span class="title">Address:</span>
+                      <span class="text">
+                        {{ doctor.address.houseName }}, {{ doctor.address.city }},
+                        {{ doctor.address.state }}, {{ doctor.address.country }},
+                        {{ doctor.address.zipCode }}
+                      </span>
+                    </li>
+                    <li><span class="title">Gender:</span> <span class="text">{{ doctor.gender }}</span></li>
+                    <li><span class="title">Status:</span> <span class="text">{{ doctor.status }}</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+    <div class="tab-content">
+        <div class="tab-pane show active" id="about-cont">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card-box">
+                <h3 class="card-title">Education Information</h3>
+                <div class="experience-box">
+                  <ul class="experience-list">
+                    <li *ngFor="let qual of doctor.qualifications">
+                      <div class="experience-user">
+                        <div class="before-circle"></div>
+                      </div>
+                      <div class="experience-content">
+                        <div class="timeline-content">
+                          <a href="#/" class="name">{{ qual.university }}</a>
+                          <div>{{ qual.degree }}</div>
+                          <span class="time">{{ qual.startYear }} - {{ qual.endYear }}</span>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
 
-  <!-- Main Details Section -->
-  <div class="details-grid">
-    <div class="detail-item"><strong>ID:</strong> {{ doctor.doctorId }}</div>
-    <div class="detail-item"><strong>Phone:</strong> {{ doctor.phoneNum }}</div>
-    <div class="detail-item"><strong>Email:</strong> {{ doctor.email }}</div>
-    <div class="detail-item"><strong>DOB:</strong> {{ doctor.dateOfBirth }}</div>
-    <div class="detail-item"><strong>Gender:</strong> {{ doctor.gender }}</div>
-    <div class="detail-item"><strong>Status:</strong> {{ doctor.status }}</div>
-  </div>
+              <div class="card-box mb-0">
+                <h3 class="card-title">Experience</h3>
+                <div class="experience-box">
+                  <ul class="experience-list">
+                    <li *ngFor="let exp of doctor.experiences">
+                      <div class="experience-user">
+                        <div class="before-circle"></div>
+                      </div>
+                      <div class="experience-content">
+                        <div class="timeline-content">
+                          <a href="#/" class="name">{{ exp.clinicName }}</a>
+                          <span class="time">{{ exp.role }} ({{ exp.experienceInYears }} years)</span>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <!-- Address Section -->
-  <div class="info-card address">
-    <h3>Address</h3>
-    <p>
-      {{ doctor.address.houseName }}, {{ doctor.address.city }},
-      {{ doctor.address.state }}, {{ doctor.address.country }},
-      {{ doctor.address.zipCode }}
-    </p>
+    <button class="btn btn-primary" [routerLink]="['/doctors']">Go back</button>
   </div>
-
-  <!-- Experience Section -->
-  <div class="info-card experiences">
-    <h3>Work Experience</h3>
-    <ul>
-      <li *ngFor="let exp of doctor.experiences">
-        <strong>{{ exp.clinicName }}</strong> - {{ exp.role }} ({{ exp.experienceInYears }} years)
-      </li>
-    </ul>
-  </div>
-
-  <!-- Qualification Section -->
-  <div class="info-card qualifications">
-    <h3>Qualifications</h3>
-    <ul>
-      <li *ngFor="let qual of doctor.qualifications">
-        {{ qual.degree }} from {{ qual.university }} ({{ qual.startYear }} - {{ qual.endYear }})
-      </li>
-    </ul>
-  </div>
-
-  <!-- Go Back Button -->
-  <button class="btn" [routerLink]="['/doctors']">Go back</button>
-</div>

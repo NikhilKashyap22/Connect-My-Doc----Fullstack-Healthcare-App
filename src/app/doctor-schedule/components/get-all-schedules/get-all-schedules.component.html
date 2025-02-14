@@ -1,35 +1,54 @@
-<div class="cl">
-  <h2>List of schedules</h2>
-  <div class="btn">
-    <button [routerLink]="['/get-schedule-by-id']" >Search</button>
-    <button [routerLink]="['/create-schedule']" >Create</button>
+<div class="page-wrapper">
+  <div class="content">
+    <div class="row">
+      <div class="col-sm-4 col-3">
+        <h4 class="page-title">List of Schedules</h4>
+      </div>
+      <div class="col-sm-8 col-9 text-right m-b-20">
+        <button class="btn btn-primary btn-rounded float-right" [routerLink]="['/create-schedule']">
+          <i class="fa fa-plus"></i> Add Schedule
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12" >
+        <div class="table-responsive">
+          <table class="table table-border table-striped custom-table mb-0 mt-5">
+            <thead>
+              <tr>
+                <th>Doctor ID</th>
+                <th>Name</th>
+                <th>Week Day</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Availability Mode</th>
+                <th>Clinic ID</th>
+                <th class="text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let schedule of doctorSchedules">
+                <td>{{ schedule.doctorId }}</td>
+                <td>{{ schedule.name }}</td>
+                <td>{{ schedule.weekDay }}</td>
+                <td>{{ schedule.startTime }}</td>
+                <td>{{ schedule.endTime }}</td>
+                <td>{{ schedule.availabilityMode }}</td>
+                <td>{{ schedule.clinicId }}</td>
+                <td class="text-right">
+                  <div class="dropdown">
+                    <button class="ellipsis-btn">&#8942;</button>
+                    <div class="dropdown-content">
+                      <a (click)="navigateToUpateComponent(schedule.doctorId)"><i class="fa fa-pencil m-r-5"></i>Edit</a>
+                      <a (click)="deleteSchedule(schedule.doctorId)"><i class="fa fa-pencil m-r-5"></i>Delete</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Doctor ID</th>
-          <th>Name</th>
-          <th>Week Day</th>
-          <th>Start Time</th>
-          <th>End Time</th>
-          <th>Availability Mode</th>
-          <th>Clinic ID</th>
-          <th>Edit Schedule</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let schedule of doctorSchedules">
-          <td>{{schedule.doctorId}}</td>
-          <td>{{schedule.name}}</td>
-          <td>{{schedule.weekDay}}</td>
-          <td>{{schedule.startTime}}</td>
-          <td>{{schedule.endTime}}</td>
-          <td>{{schedule.availabilityMode}}</td>
-          <td>{{schedule.clinicId}}</td>
-          <td>
-            <button (click)="navigateToUpateComponent(schedule.doctorId)">Edit Schedule</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
 </div>

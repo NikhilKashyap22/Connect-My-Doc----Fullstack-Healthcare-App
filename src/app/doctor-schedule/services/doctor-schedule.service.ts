@@ -57,13 +57,15 @@ export class DoctorScheduleService {
   }
 
   public updateDoctorSchedule(id:string, doctorSchedule:DoctorSchedule):Observable<DoctorSchedule>{
-    try{
       const url = `${environment.baseApiUrl}${environment.services['doctorSchedule']}${environment.apiPaths['doctorSchedule']['updateDoctorSchedule']}${id}`;
       console.log("Update Doctor URL: " + url);
       return this.http.put<DoctorSchedule>(url, doctorSchedule, {headers:this.getAuthHeaders()}).pipe(catchError(this.handleError));
-    }catch (error) {
-      return throwError(() => new Error('Error updating doctor schedule: ' + error));
-    }
+  }
+
+  public deleteDoctorSchedule(id:string):Observable<any>{
+    const url = `${environment.baseApiUrl}${environment.services['doctorSchedule']}${environment.apiPaths['doctorSchedule']['deleteDoctorSchedule']}${id}`;
+    console.log("Doctor Schedule Delete URL: " + url)
+    return this.http.delete<any>(url, {headers:this.getAuthHeaders()}).pipe(catchError(this.handleError));
   }
 
 }

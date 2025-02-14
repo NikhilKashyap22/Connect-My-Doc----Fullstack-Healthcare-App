@@ -94,7 +94,7 @@ export class ViewAllAppointmentsComponent implements OnInit {
   public editAppointment(appointmentId: string): void {
     try {
       // this.router.navigate(['/home/edit-appointment'], { queryParams: { appointmentId } });
-      this.router.navigate(['/home/edit-appointment' ,appointmentId]);
+      this.router.navigate(['/edit-appointment' ,appointmentId]);
       this.selectedAppointmentId = null;
     } catch (err) {
       this.loggerService.logError(`Error navigating to edit appointment with ID: ${appointmentId} - ${err}`);
@@ -106,7 +106,7 @@ export class ViewAllAppointmentsComponent implements OnInit {
 
   public viewAppointment(appointmentId: string): void {
     try {
-      this.router.navigate(['/home/view-appointment-by-id', appointmentId]);
+      this.router.navigate(['/view-appointment-by-id', appointmentId]);
       this.selectedAppointmentId = null;
     } catch (err) {
       this.loggerService.logError(`Error navigating to view appointment with ID: ${appointmentId} - ${err}`);

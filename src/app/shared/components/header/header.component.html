@@ -1,23 +1,17 @@
-<header class="header">
-  <div class="header-left" routerLinkActive="router-link-active" >
-    <a class="logo" [routerLink]="['/dashboard']">+ CMD</a>
-    <a class="subtitle" [routerLink]="['/dashboard']">Connect My Doc</a>
+<div class="header">
+  <div class="header-left">
+    <a id="toggle_btn" (click)="toggleSidebar()"><i class="fa fa-bars"></i></a>
+    <a [routerLink]="['/dashboard']" class="logo">
+      <img src="assets/img/logo.png" width="100" height="45" alt="" />
+    </a>
   </div>
-  <div class="header-right">
-    <button class="icon-button">
-      <span class="material-icons">notifications</span>
-    </button>
-    <button class="icon-button">
-      <span class="material-icons">settings</span>
-    </button>
-    <div class="profile">
-      <!-- <img src="assets/images/male-icon.png" alt="A" class="avatar" width="40" height="40"> -->
-      <div class="dropdown">
-        <button class="ellipsis-btn"><img src="assets/images/male-icon.png" alt="A" class="avatar" width="40" height="40"></button>
-        <div class="dropdown-content">
-          <a (click)="logout()">Logout</a>
-        </div>
+  <a id="mobile_btn" class="mobile_btn float-left"><i class="fa fa-bars"></i></a>
+  <div class="dropdown" style="width:150px; display: flex; align-items: center;">
+    <span class="user-img ml-2"><img class="rounded-circle" src="assets/img/user.jpg" style="height: 45px; width: 45px;" alt="Admin">
+      <span class="status online"></span></span>
+                <span class="ml-2">Admin</span>
+    <div class="dropdown-content">
+      <a (click)="logout()">Logout</a>
     </div>
-  </div>
-  </div>
-</header>
+</div>
+</div>

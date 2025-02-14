@@ -1,6 +1,7 @@
 import { NgClass, NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 interface NavigationItem {
   name: string;
@@ -11,13 +12,16 @@ interface NavigationItem {
 @Component({
   selector: 'app-sidebar',
   standalone:true,
-  imports:[RouterModule, NgFor],
+  imports:[RouterModule, FontAwesomeModule,NgClass],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
+
+  @Input() isOpen = true;
+
   navigation: NavigationItem[] = [
-    { name: 'Dashboard', route: '/dashboard', icon: '/assets/images/dashboard-solid-24.png'},
+    { name: 'Dashboard', route: '/dashboard', icon: 'fa fa-dashboard'},
     { name: 'Appointments', route: '/appointments', icon: '/assets/images/calendar-check-solid-24.png'},
     { name: 'Doctors', route: '/doctors', icon: '/assets/images/injection-solid-24.png'},
     { name: 'Doctor Schedules', route: '/doctor-schedules', icon: '/assets/images/stopwatch-solid-24.png'},
@@ -31,7 +35,6 @@ export class SidebarComponent {
   constructor(private router: Router) {}
 
   isActive(route: string): boolean {
-
     return this.router.url === route;
   }
 }

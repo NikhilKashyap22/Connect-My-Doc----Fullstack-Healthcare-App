@@ -46,7 +46,7 @@ export class AppointmentService {
   public scheduleAppointment(appointmentData: any): Observable<any> {
     const url = `${environment.baseApiUrlAppointments}${environment.services['appointments']}${environment.apiPaths['appointments']['createAppointment']}`;
     console.log(url);
-    return this.http.post<any>(url, appointmentData);
+    return this.http.post<any>(url, appointmentData, {headers:this.getAuthHeaders()});
 }
 
 
@@ -55,7 +55,7 @@ export class AppointmentService {
     const url = `${environment.baseApiUrlAppointments}${environment.services['appointments']}${environment.apiPaths['appointments']['purposeOfVisit']}`;
     console.log(url);
 
-    return this.http.get<string[]>(url);
+    return this.http.get<string[]>(url, {headers:this.getAuthHeaders()});
 
   }
 
@@ -64,7 +64,7 @@ export class AppointmentService {
     const url = `${environment.baseApiUrlAppointments}${environment.services['appointments']}${environment.apiPaths['appointments']['appointmentType']}`;
     console.log(url);
 
-    return this.http.get<string[]>(url);
+    return this.http.get<string[]>(url,{headers:this.getAuthHeaders()});
 
   }
 
@@ -74,7 +74,7 @@ export class AppointmentService {
   }
 
   public getAppointmentById(appointmentId: string): Observable<IAppointment> {
-    return this.http.get<{ object: IAppointment }>(`${environment.baseApiUrlAppointments}${environment.services['appointments']}${environment.apiPaths['appointments']['getAppointmentById'].replace('{appointmentId}', appointmentId)}`).pipe(
+    return this.http.get<{ object: IAppointment }>(`${environment.baseApiUrlAppointments}${environment.services['appointments']}${environment.apiPaths['appointments']['getAppointmentById'].replace('{appointmentId}', appointmentId)}`,{headers:this.getAuthHeaders()}).pipe(
       map(response => response.object),  // Use map to extract the 'object' part of the response
       catchError((error) => {
         // Error logging logic

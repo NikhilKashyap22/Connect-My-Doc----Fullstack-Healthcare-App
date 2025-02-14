@@ -10,7 +10,7 @@ import { SidebarComponent } from "../../../shared/components/sidebar/sidebar.com
 @Component({
   selector: 'app-get-all-schedules',
   standalone: true,
-  imports: [NgFor, RouterModule, HeaderComponent, SidebarComponent],
+  imports: [NgFor, RouterModule],
   templateUrl: './get-all-schedules.component.html',
   styleUrl: './get-all-schedules.component.css'
 })
@@ -32,6 +32,20 @@ export class GetAllSchedulesComponent implements OnInit {
 
   public navigateToUpateComponent(doctorId:string){
     this.router.navigate(['/update-doctor-schedule'],{ queryParams: { id: doctorId, section: 'address' } })
+  }
+
+  public deleteSchedule(doctorId:string){
+    if(confirm('Are you sure you want to delete this schedule?')){
+      this.doctorScheduleService.deleteDoctorSchedule(doctorId).subscribe(
+        () => {
+          alert('Schedule deleted successfully!');
+          this.router.navigate(['/doctor-schedules']);
+        },
+        (error) => {
+          alert('Error deleting schedule');
+        }
+      );
+    }
   }
 
 }

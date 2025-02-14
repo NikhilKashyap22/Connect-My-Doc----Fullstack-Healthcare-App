@@ -16,7 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class EditClinicComponent implements OnInit {
   clinicForm!: FormGroup;
   clinicId!: number;
-  
+
 
   private route = inject(ActivatedRoute);
   private clinicService = inject(ClinicService);
@@ -66,7 +66,7 @@ export class EditClinicComponent implements OnInit {
     this.clinicService.updateClinic(this.clinicId, updatedClinic).subscribe(
       () => {
        // alert('Clinic updated successfully');
-        this.router.navigate(['/clinics']);
+        this.router.navigate(['/view-all-clinics']);
       },
       (error) => console.error('Error updating clinic', error)
     );

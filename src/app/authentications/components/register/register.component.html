@@ -1,18 +1,39 @@
-<div class="register-container">
-  <h2>Register</h2>
-  <input type="text" placeholder="Username" [(ngModel)]="user.username">
-  <input type="password" placeholder="Password" [(ngModel)]="user.password">
-  <span>I am a: </span>
-  <div class="role">
-    <div class="left">
-      <input type="radio" placeholder="Role" [(ngModel)]="user.role" value="ADMIN" class="role-input">Admin
+<div class="main-wrapper account-wrapper">
+  <div class="account-page">
+    <div class="account-center">
+      <div class="account-box">
+        <form (ngSubmit)="register()" class="form-signin">
+          <div class="account-logo text-center">
+            <a [routerLink]="['/']"><img src="assets/img/logo-dark.png" alt=""></a>
+          </div>
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form-control" placeholder="Username" [(ngModel)]="user.username" name="username">
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" placeholder="Password" [(ngModel)]="user.password" name="password">
+          </div>
+          <div class="form-group">
+            <label>I am a:</label>
+            <div class="d-flex justify-content-between">
+              <div>
+                <input type="radio" [(ngModel)]="user.role" name="role" value="ADMIN"> Admin
+              </div>
+              <div>
+                <input type="radio" [(ngModel)]="user.role" name="role" value="USER"> User
+              </div>
+            </div>
+          </div>
+          <div class="form-group text-center">
+            <button class="btn btn-primary account-btn" type="submit">Register</button>
+          </div>
+          <p *ngIf="message" class="text-danger text-center">{{ message }}</p>
+          <div class="text-center login-link">
+            Already have an account? <a [routerLink]="['/login']">Login</a>
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="right">
-      <input type="radio" placeholder="Role" [(ngModel)]="user.role" value="USER">User
-    </div>
-    </div>
-  <button (click)="register()">Register</button>
-  <p>Already have account?</p>
-  <button [routerLink]="['/login']">Login </button>
-  <p *ngIf="message">{{ message }}</p>
+  </div>
 </div>

@@ -32,7 +32,7 @@ export class ScheduleAppointmentComponent {
     private fb: FormBuilder,
     private http: HttpClient,
     private appointmentService: AppointmentService,
-    private loggerService : LoggerService  
+    private loggerService : LoggerService
   ) {}
 
   //6. On-Init
@@ -55,7 +55,7 @@ export class ScheduleAppointmentComponent {
   //7. Functional Method Calls
   public getPurposeOfVisit(): void {
     try {
-      
+
       this.appointmentService.getPurposeOfVisitValues().subscribe({
         next : (data) => this.purposeOfVisitOptions = data,
         error: (error) => console.error('Error fetching purpouseOfVisit options', error)
@@ -69,7 +69,7 @@ export class ScheduleAppointmentComponent {
   public getAppointmentTypeOptions(): void {
 
     try {
-      
+
       this.appointmentService.getAppointmentTypeValues().subscribe({
         next : (data) => this.appointmentTypeOptions = data,
         error: (error) => console.error('Error fetching appointmentType options', error)
@@ -78,7 +78,7 @@ export class ScheduleAppointmentComponent {
     } catch (error) {
       this.loggerService.logError(`Error fetching appointmentType values : ${error}`);
     }
-    
+
   }
 
   //8. Functional methods to submit
@@ -93,20 +93,20 @@ export class ScheduleAppointmentComponent {
       const appointmentData = {
         doctor: {
           doctorId: formData.doctorId,
-          doctorName: '', 
+          doctorName: '',
           doctorEmail: '',
           associatedClinicId: '',
           associatedClinicName: ''
         },
         patient: {
           patientId: formData.patientId,
-          patientName: '', 
+          patientName: '',
           patientEmail: '',
           contactNumber: '',
-          age: 0,  
+          age: 0,
           active: true
         },
-        appointmentDate: formattedDate, 
+        appointmentDate: formattedDate,
         appointmentTime: formData.appointmentTime,
         appointmentStatus: 'SCHEDULED',
         purposeOfVisit: formData.purposeOfVisit,
@@ -116,7 +116,7 @@ export class ScheduleAppointmentComponent {
       this.appointmentService.scheduleAppointment(appointmentData).subscribe({
         next: (response) => {
           console.log('Appointment Scheduled:', response);
-          this.scheduledAppointment = response.appointment; 
+          this.scheduledAppointment = response.appointment;
           // console.log(this.scheduledAppointment);
           this.appointmentForm.reset();
         },
@@ -128,7 +128,7 @@ export class ScheduleAppointmentComponent {
       console.log('Invalid Form');
     }
   }
-  
+
 
   //9.  Helper function to convert YYYY-MM-DD to DD-MM-YYYY
   private formatDate(isoDate: string): string {

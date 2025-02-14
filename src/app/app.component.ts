@@ -22,6 +22,8 @@ import { NgIf } from '@angular/common';
 export class AppComponent{
   title = 'CMD_UI';
 
+  sidebarOpen = true;
+
   isLoginPage = false;
 
   constructor(private router: Router) {
@@ -30,5 +32,9 @@ export class AppComponent{
     if (environment.sentryDsn) {
       Sentry.init({ dsn: environment.sentryDsn });
     }
+  }
+
+  public toggleSidebar(){
+    this.sidebarOpen = !this.sidebarOpen;
   }
 }

@@ -1,171 +1,79 @@
-<div class="cl">
-  <h2>Create Schedule</h2>
-  <label for="doctorId">Enter Doctor ID: <span class="text-danger">*</span></label>
-  <input type="text" id="doctorId" [(ngModel)]="schedules.doctorId" />
-  <form (ngSubmit)="submitSchedule()">
-    <div class="form">
-      <div class="col-sm-6">
-        <label>Schedule Name <span class="text-danger">*</span></label>
-        <div class="form-group">
-          <input
-            class="form-control"
-            type="text"
-            [(ngModel)]="schedules.name"
-            name="scheduleName"
-            required
-          />
-        </div>
+<div class="page-wrapper">
+  <div class="content">
+      <div class="row">
+          <div class="col-lg-8 offset-lg-2">
+              <h4 class="page-title">Create Schedule</h4>
+          </div>
       </div>
-      <div class="col-sm-6">
-        <label>Day of the week <span class="text-danger">*</span></label>
-        <div class="form-group">
-          <div class="form-check">
-            <input
-              type="radio"
-              id="offline"
-              name="weekDay"
-              [(ngModel)]="schedules.weekDay"
-              value="MONDAY"
-              class="form-check-input"
-            />
-            <label class="form-check-label" for="monday">MONDAY</label>
+      <div class="row">
+          <div class="col-lg-8 offset-lg-2">
+              <form (ngSubmit)="submitSchedule()">
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>Doctor ID <span class="text-danger">*</span></label>
+                              <input type="text" class="form-control" [(ngModel)]="schedules.doctorId" name="doctorId" required>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>Schedule Name <span class="text-danger">*</span></label>
+                              <input class="form-control" type="text" [(ngModel)]="schedules.name" name="scheduleName" required>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>Day of the Week <span class="text-danger">*</span></label>
+                              <select class="form-control" [(ngModel)]="schedules.weekDay" name="weekDay" required>
+                                  <option value="MONDAY">Monday</option>
+                                  <option value="TUESDAY">Tuesday</option>
+                                  <option value="WEDNESDAY">Wednesday</option>
+                                  <option value="THURSDAY">Thursday</option>
+                                  <option value="FRIDAY">Friday</option>
+                                  <option value="SATURDAY">Saturday</option>
+                                  <option value="SUNDAY">Sunday</option>
+                              </select>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>Start Time <span class="text-danger">*</span></label>
+                              <input class="form-control" type="time" [(ngModel)]="schedules.startTime" name="startTime" required>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>End Time <span class="text-danger">*</span></label>
+                              <input class="form-control" type="time" [(ngModel)]="schedules.endTime" name="endTime" required>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>Availability Mode <span class="text-danger">*</span></label>
+                              <select class="form-control" [(ngModel)]="schedules.availabilityMode" name="availabilityMode" required>
+                                  <option value="OFFLINE">Offline</option>
+                                  <option value="ONLINE">Online</option>
+                              </select>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>Clinic ID <span class="text-danger">*</span></label>
+                              <input class="form-control" type="text" [(ngModel)]="schedules.clinicId" name="clinicId" required>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="m-t-20 text-center">
+                      <button type="submit" class="btn btn-primary submit-btn">Create Schedule</button>
+                  </div>
+              </form>
           </div>
-          <div class="form-check">
-            <input
-              type="radio"
-              id="offline"
-              name="weekDay"
-              [(ngModel)]="schedules.weekDay"
-              value="TUESDAY"
-              class="form-check-input"
-            />
-            <label class="form-check-label" for="tuesday">TUESDAY</label>
-          </div>
-          <div class="form-check">
-            <input
-              type="radio"
-              id="offline"
-              name="weekDay"
-              [(ngModel)]="schedules.weekDay"
-              value="WEDNESDAY"
-              class="form-check-input"
-            />
-            <label class="form-check-label" for="wednesday">WEDNESDAY</label>
-          </div>
-          <div class="form-check">
-            <input
-              type="radio"
-              id="offline"
-              name="weekDay"
-              [(ngModel)]="schedules.weekDay"
-              value="THURSDAY"
-              class="form-check-input"
-            />
-            <label class="form-check-label" for="thursday">THURSDAY</label>
-          </div>
-          <div class="form-check">
-            <input
-              type="radio"
-              id="offline"
-              name="weekDay"
-              [(ngModel)]="schedules.weekDay"
-              value="FRIDAY"
-              class="form-check-input"
-            />
-            <label class="form-check-label" for="friday">FRIDAY</label>
-          </div>
-          <div class="form-check">
-            <input
-              type="radio"
-              id="offline"
-              name="weekDay"
-              [(ngModel)]="schedules.weekDay"
-              value="SATURDAY"
-              class="form-check-input"
-            />
-            <label class="form-check-label" for="saturday">SATURDAY</label>
-          </div>
-          <div class="form-check">
-            <input
-              type="radio"
-              id="offline"
-              name="weekDay"
-              [(ngModel)]="schedules.weekDay"
-              value="SUNDAY"
-              class="form-check-input"
-            />
-            <label class="form-check-label" for="sunday">SUNDAY</label>
-          </div>
-        </div>
       </div>
-      <div class="col-sm-6">
-        <label>Start Time<span class="text-danger">*</span></label>
-        <div class="form-group">
-          <input
-            class="form-control"
-            type="time"
-            [(ngModel)]="schedules.startTime"
-            name="startTime"
-            required
-          />
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <label>End Time <span class="text-danger">*</span></label>
-        <div class="form-group">
-          <input
-            class="form-control"
-            type="time"
-            [(ngModel)]="schedules.endTime"
-            name="endTime"
-            required
-          />
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <label>Availability Mode <span class="text-danger">*</span></label>
-        <div class="form-group">
-          <div class="form-check">
-            <input
-              type="radio"
-              id="offline"
-              name="availabilityMode"
-              [(ngModel)]="schedules.availabilityMode"
-              value="OFFLINE"
-              class="form-check-input"
-            />
-            <label class="form-check-label" for="offline">OFFLINE</label>
-          </div>
-          <div class="form-check">
-            <input
-              type="radio"
-              id="online"
-              name="availabilityMode"
-              [(ngModel)]="schedules.availabilityMode"
-              value="ONLINE"
-              class="form-check-input"
-            />
-            <label class="form-check-label" for="online">ONLINE</label>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <label>Clinic ID: <span class="text-danger">*</span></label>
-        <div class="form-group">
-          <input
-            class="form-control"
-            type="text"
-            [(ngModel)]="schedules.clinicId"
-            name="clinicName"
-            required
-          />
-        </div>
-      </div>
-    </div>
-    <div class="m-t-20 text-center">
-      <button type="submit" class="btn btn-primary submit-btn">
-        Create Schedule
-      </button>
-    </div>
-  </form>
+  </div>
 </div>

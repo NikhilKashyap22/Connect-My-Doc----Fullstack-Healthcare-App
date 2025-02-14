@@ -63,6 +63,38 @@ export class AddDoctorComponent {
     ]
   };
 
+  cities: string[] = [
+    'Mumbai', 'Delhi', 'Bangalore', 'Hyderabad', 'Chennai', 'Kolkata', 'Pune',
+    'Ahmedabad', 'Jaipur', 'Lucknow', 'Kanpur', 'Nagpur', 'Indore', 'Thane',
+    'Bhopal', 'Visakhapatnam', 'Patna', 'Vadodara', 'Ghaziabad', 'Ludhiana',
+    'Agra', 'Nashik', 'Faridabad', 'Meerut', 'Rajkot', 'Varanasi', 'Srinagar',
+    'Aurangabad', 'Dhanbad', 'Amritsar', 'Navi Mumbai', 'Allahabad', 'Howrah',
+    'Gwalior', 'Jabalpur', 'Coimbatore', 'Vijayawada', 'Jodhpur', 'Madurai',
+    'Raipur', 'Kota', 'Chandigarh', 'Guwahati', 'Solapur', 'Hubli', 'Mysore',
+    'Tiruchirappalli', 'Bareilly', 'Aligarh', 'Tirunelveli', 'Jammu'
+  ];
+
+  states: string[] = [
+    'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa',
+    'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jharkhand', 'Karnataka', 'Kerala',
+    'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland',
+    'Odisha', 'Punjab', 'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana',
+    'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal'
+  ];
+
+  countries: string[] = [
+    'India', 'United States', 'United Kingdom', 'Canada', 'Australia',
+    'Germany', 'France', 'Singapore', 'Japan', 'South Africa'
+  ];
+
+  specializations: string[] = [
+    'General Physician', 'Pediatrics', 'Dermatology', 'Cardiology', 'Neurology',
+    'Oncology', 'Gynecology', 'Orthopedics', 'Ophthalmology', 'ENT', 'Psychiatry',
+    'Urology', 'Gastroenterology', 'Pulmonology', 'Endocrinology', 'Nephrology',
+    'Rheumatology', 'Plastic Surgery', 'Dental', 'MBBS'
+  ];
+
+
   /**
    * Creates an instance of AddDoctorComponent.
    * @param doctorService Service for handling doctor-related operations.

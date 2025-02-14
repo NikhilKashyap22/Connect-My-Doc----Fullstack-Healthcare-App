@@ -2,22 +2,21 @@
 import { DoctorService } from './../../services/doctor.service';
 import { Component, OnInit } from '@angular/core';
 import { Address, Doctor, Experience } from '../../models/doctor.model';
-import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 // 2. Component and Templates
 @Component({
   selector: 'app-edit-doctor',
   standalone: true,
-  imports: [FormsModule, NgIf],
+  imports: [NgIf, FormsModule],
   templateUrl: './edit-doctor.component.html',
-  styleUrl: './edit-doctor.component.css'
+  styleUrl: './edit-doctor.component.css',
 })
 
 // 3. Class
 export class EditDoctorComponent implements OnInit {
-
   // 4. Properties
 
   /**
@@ -37,7 +36,7 @@ export class EditDoctorComponent implements OnInit {
     clinicName: '',
     experienceInYears: 0,
     role: '',
-    experienceType: 'PRESENTLY_WORKING'
+    experienceType: 'PRESENTLY_WORKING',
   };
 
   /**
@@ -53,7 +52,7 @@ export class EditDoctorComponent implements OnInit {
     city: '',
     state: '',
     country: '',
-    zipCode: ''
+    zipCode: '',
   };
 
   // 5. Constructor
@@ -77,7 +76,7 @@ export class EditDoctorComponent implements OnInit {
    * Retrieves doctor ID from query parameters and fetches doctor details.
    */
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe((params) => {
       if (params['id']) {
         this.doctorId = params['id'];
         this.fetchDoctor();
@@ -109,13 +108,12 @@ export class EditDoctorComponent implements OnInit {
    * Submits the updated experience to the API and navigates to the home page.
    */
   public updateExperience() {
-    this.doctorService.updateDoctorExperience(this.doctorId, this.updatedExperience).subscribe({
-      next: (data) => (
-        this.doctor = data,
-        console.log("Data: " + data)
-      ),
-      error: (err) => console.error('Error message: ' + err)
-    });
+    this.doctorService
+      .updateDoctorExperience(this.doctorId, this.updatedExperience)
+      .subscribe({
+        next: (data) => ((this.doctor = data), console.log('Data: ' + data)),
+        error: (err) => console.error('Error message: ' + err),
+      });
     this.router.navigate(['/doctors']);
   }
 
@@ -124,14 +122,16 @@ export class EditDoctorComponent implements OnInit {
    * Submits the new address to the API and navigates to the home page.
    */
   public updateAddress() {
-    this.doctorService.updateDoctorAddress(this.doctorId, this.newAddress).subscribe(
-      (updatedDoctor) => {
-        this.doctor = updatedDoctor;
-      },
-      (error) => {
-        alert('error updating status');
-      }
-    );
+    this.doctorService
+      .updateDoctorAddress(this.doctorId, this.newAddress)
+      .subscribe(
+        (updatedDoctor) => {
+          this.doctor = updatedDoctor;
+        },
+        (error) => {
+          alert('error updating status');
+        }
+      );
     this.router.navigate(['/doctors']);
   }
 }
