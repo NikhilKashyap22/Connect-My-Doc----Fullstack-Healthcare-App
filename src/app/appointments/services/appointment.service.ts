@@ -70,7 +70,7 @@ export class AppointmentService {
 
 
   public cancelAppointmentById(appointmentId: string): Observable<any> {
-    return this.http.put(`${environment.baseApiUrlAppointments}${environment.services['appointments']}${environment.apiPaths['appointments']['cancelAppointment'].replace('{appointmentId}', appointmentId)}`,{});
+    return this.http.put(`${environment.baseApiUrlAppointments}${environment.services['appointments']}${environment.apiPaths['appointments']['cancelAppointment'].replace('{appointmentId}', appointmentId)}`,{},{headers:this.getAuthHeaders()});
   }
 
   public getAppointmentById(appointmentId: string): Observable<IAppointment> {

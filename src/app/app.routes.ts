@@ -50,10 +50,9 @@ const routerConfig: Routes = [
   {path:'view-appointment-by-id/:appointmentId', component:ViewAppointmentByIdComponent,canActivate: [AuthGuard]},
 
   //Clinics routing paths
-  {path:'add-clinic',component:AddClinicComponent,canActivate: [AuthGuard]},
-  {path:'edit-clinic',component:EditClinicComponent,canActivate: [AuthGuard]},
-  {path:'view-all-clinics',component:ViewAllClinicsComponent,canActivate: [AuthGuard]},
-  {path:'view-clinic-by-id',component:ViewClinicByIdComponent,canActivate: [AuthGuard]},
+  {path: 'clinics', component: ViewAllClinicsComponent, canActivate: [AuthGuard] },
+  {path: 'clinics/add', component: AddClinicComponent, canActivate: [AuthGuard] },
+  {path: 'clinics/edit/:id', component: EditClinicComponent, canActivate: [AuthGuard] },
 
   //Doctors routing paths
   {path:'add-doctor',component:AddDoctorComponent,canActivate: [AuthGuard]},
