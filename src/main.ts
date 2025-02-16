@@ -23,7 +23,6 @@ bootstrapApplication(AppComponent, {
     LoggerService,
     { provide: ErrorHandler, useClass: ErrorHandlerService },
     provideHttpClient(),
-    // provideHttpClient(withInterceptors([ErrorInterceptor])),
     provideRouter(routerConfig),
     {provide:HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true},
     provideAnimationsAsync()
